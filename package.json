@@ -1,0 +1,25 @@
+{
+  "name": "the-game-is-trivia",
+  "version": "1.0.0",
+  "description": "Movie trivia demo application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CliffCrerar/the-game-is-trivia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CliffCrerar/the-game-is-trivia/issues"
+  },
+  "homepage": "https://github.com/CliffCrerar/the-game-is-trivia#readme",
+  "dependencies": {
+    "pouchdb-adapter-idb": "^7.2.1",
+    "rxdb": "^8.8.0",
+    "rxjs": "^6.5.4"
+  }
+}
