@@ -3,5 +3,20 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"editor.tabSize": 4,
+		"editor.wordWrap": "on",
+		"editor.codeLens": true,
+		"editor.colorDecorators": true,
+		"editor.cursorWidth": 3,
+		"terminal.integrated.fontSize": 12,
+		"terminal.integrated.fontFamily": "Fira Code",
+		"terminal.integrated.fontWeightBold": "normal",
+		"editor.fontLigatures": true,
+		"editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+		"editor.fontSize": 13,
+		"editor.fontWeight": "bold",
+		"editor.formatOnSave": true
+	}
 }
