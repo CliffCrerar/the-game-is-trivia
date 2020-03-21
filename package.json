@@ -23,6 +23,7 @@
     "lit-html": "^1.2.1",
     "mongodb": "^3.5.5",
     "node-sass": "^4.13.1",
+    "normalize.css": "^8.0.1",
     "pouchdb-adapter-http": "^7.2.1",
     "pouchdb-adapter-memory": "^7.2.1",
     "pouchdb-core": "^7.2.1",
