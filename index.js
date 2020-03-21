@@ -6,6 +6,7 @@ process.env.NODE_PATH = [ './', './utils' ].join( require( 'os' ).platform() ===
 import express from 'express';
 import path from 'path';
 import app from './app';
+import api from './api'
 import fs from 'fs';
 
 const server = express();
@@ -44,6 +45,7 @@ read( resolve( '.env' ) )
     } )
 
 server.use( '/', app );
+server.use( '/api', api )
 const port = normalizePort( process.env.PORT, 3000 )
 
 server.listen( port, () => {
