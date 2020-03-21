@@ -43,9 +43,14 @@ sassFile( './public/style/global.scss' );
  * Generic route to handle logging
  */
 app.all( '*', ( { path }, { statusCode }, next ) => {
-    LOG( statusCode, ' PATH: ', path );
+    console.log( statusCode, ' PATH: ', path );
     next();
 } )
+
+
+function test () {
+    console.log( 'this is a test' );
+}
 
 /**
  * Application front end routing
@@ -59,5 +64,7 @@ app.use( '/', serveStatic( 'js' ) )
 app.use( '/global-stylesheet', serveStatic( 'public/style/global.css' ) );
 
 app.get( '/', ( req, res ) => streamResource( 'views/public/index.html', 'text/html', res ) );
+
+app.get( '/testscript', ( req, res ) => streamResource( 'views/js/layout.js', 'text/javascript', res ) );
 
 export default app;
