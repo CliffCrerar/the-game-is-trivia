@@ -11,12 +11,12 @@
 		"editor.colorDecorators": true,
 		"editor.cursorWidth": 3,
 		"terminal.integrated.fontSize": 12,
-		"terminal.integrated.fontFamily": "Fira Code",
+		"terminal.integrated.fontFamily": "Menlo",
 		"terminal.integrated.fontWeightBold": "normal",
 		"editor.fontLigatures": true,
-		"editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+		"editor.fontFamily": "Monaco, 'Courier New', monospace",
 		"editor.fontSize": 13,
-		"editor.fontWeight": "bold",
+		"editor.fontWeight": "200",
 		"editor.formatOnSave": true
 	}
 }
