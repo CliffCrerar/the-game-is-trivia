@@ -1,0 +1,28 @@
+/**
+* App global styles
+*/
+:root {
+  box-sizing: border-box;
+}
+
+html {
+  color: blue;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 100vh;
+  min-height: 100vh;
+  height: auto;
+}
+
+.someClass {
+  background: blue;
+  position: relative;
+  .somesubclass {
+    position: relative;
+    border-radius: 12px;
+  }
+}

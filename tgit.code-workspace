@@ -3,5 +3,31 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"editor.tabSize": 4,
+		"editor.wordWrap": "on",
+		"editor.codeLens": true,
+		"editor.colorDecorators": true,
+		"editor.cursorWidth": 3,
+		"terminal.integrated.fontSize": 12,
+		"terminal.integrated.fontFamily": "Menlo",
+		"terminal.integrated.fontWeightBold": "normal",
+		"editor.fontLigatures": true,
+		"editor.fontFamily": "Monaco, 'Courier New', monospace",
+		"editor.fontSize": 13,
+		"editor.fontWeight": "200",
+		"editor.formatOnSave": true,
+		"javascript.format.insertSpaceAfterConstructor": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+		"javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+		"javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+		"javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+		"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+		"javascript.preferences.quoteStyle": "single",
+		"javascript.referencesCodeLens.enabled": true,
+		"javascript.suggest.completeFunctionCalls": true
+	}
 }

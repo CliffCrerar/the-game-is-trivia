@@ -1,7 +1,7 @@
-# the-game-is-trivia
+# The game is trivia
 
-Movie trivia demo application
+Demo 2 player movie trivia application
 
-### Project documentation in Wiki
+# Required
 
-### Agile style project tasks in the project section
+1. Nodejs
