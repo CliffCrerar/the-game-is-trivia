@@ -3,7 +3,7 @@
 on:
   push:
     branches:
-    - Dev
+    - dev
 
 jobs:
   pull-request:
