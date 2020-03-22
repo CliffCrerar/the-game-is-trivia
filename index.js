@@ -67,7 +67,7 @@ function configureEnvironment () {
 /**
  * @description Use webpack to compile browser code
  */
-async function configureBrowserCode () {
+function configureBrowserCode () {
     console.log( process.env.NODE_ENV );
     const
         devMode = process.env.NODE_ENV === 'development',
@@ -79,7 +79,7 @@ async function configureBrowserCode () {
 
     readDir( outFilePath ).forEach( file => remove( join( outFilePath, file ) ) ) // clean path
     // configure front end code on return also demonstrates closures
-    await webpack( {
+    return webpack( {
         mode: process.env.NODE_ENV,
         entry: appEntry,
         output: {
@@ -95,7 +95,7 @@ async function configureBrowserCode () {
             process.exit( 5 ) // exit on node code 5 fatal error
         }
     } )
-    return;
+
 }
 
 /**
