@@ -5,8 +5,14 @@
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index",
-    "dev": "nodemon index.js  --exec babel-node --presets babel-preset-env"
+    "start": "babel-node index.js --presets babel-preset-env",
+    "dev": "nodemon index.js --exec babel-node --presets babel-preset-env"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "app/public/js/*"
+    ],
+    "delay": "500"
   },
   "repository": {
     "type": "git",
@@ -19,21 +25,18 @@
   },
   "homepage": "https://github.com/CliffCrerar/the-game-is-trivia#readme",
   "dependencies": {
+    "@babel/core": "^7.9.0",
     "express": "^4.17.1",
     "lit-html": "^1.2.1",
     "mongodb": "^3.5.5",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
+    "pouchdb": "^7.2.1",
     "pouchdb-adapter-http": "^7.2.1",
     "pouchdb-adapter-memory": "^7.2.1",
     "pouchdb-core": "^7.2.1",
-    "pouchdb-replication": "^7.2.1"
-  },
-  "files": [
-    "./utils"
-  ],
-  "config": {
-    "port": 3000
+    "pouchdb-replication": "^7.2.1",
+    "webpack": "^4.42.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
