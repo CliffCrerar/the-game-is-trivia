@@ -65,6 +65,6 @@ app.use( '/global-stylesheet', serveStatic( 'public/style/global.css' ) );
 
 app.get( '/', ( req, res ) => streamResource( 'views/public/index.html', 'text/html', res ) );
 
-app.get( '/testscript', ( req, res ) => streamResource( 'views/js/layout.js', 'text/javascript', res ) );
+app.get( '/testscript', ( req, res ) => streamResource( 'views/js/layout.js', 'text/javascript  ', res ) );
 
 export default app;
