@@ -34,3 +34,5 @@
 [Tue, 24 Mar 2020 21:17:29 GMT] [info] [<0.000.0>] ::1 - - PUT /lobby/67078e9c-1382-d131-6dd0-7152a624a483 201
 [Tue, 24 Mar 2020 21:17:53 GMT] [info] [<0.000.0>] ::1 - - GET /lobby/ 200
 [Tue, 24 Mar 2020 21:17:53 GMT] [info] [<0.000.0>] ::1 - - PUT /lobby/916a0019-d9ab-3cf8-e3d3-db2e9f50fd2a 201
+[Tue, 24 Mar 2020 22:47:26 GMT] [info] [<0.000.0>] ::1 - - GET /lobby/ 200
+[Tue, 24 Mar 2020 22:47:26 GMT] [info] [<0.000.0>] ::1 - - PUT /lobby/6dd9e6aa-2526-e1a5-f660-858ac548b20b 201

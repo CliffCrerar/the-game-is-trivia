@@ -5,7 +5,7 @@ import { html } from 'lit-html';
 import NavBar from './_nav';
 import Header from './_header'
 import InnerMain from './_main';
-import GetUserName from './_username-overlay';
+import GetUserName from '../services/username.service.mjs';
 
 const App = ( navBar, header, innerMain ) => {
 
