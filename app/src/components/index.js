@@ -10,7 +10,7 @@ import GetUserName from './_username-overlay';
 const App = ( navBar, header, innerMain ) => {
 
     const
-        checkUserId = localStorage.getItem( 'userId' ),
+        checkUserId = localStorage.getItem( 'user_id' ),
         userNameExists = !( checkUserId ?? null )
 
     return html`
