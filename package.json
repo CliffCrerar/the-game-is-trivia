@@ -12,7 +12,7 @@
     "ignore": [
       "app/public/js/*"
     ],
-    "delay": "500"
+    "delay": "0"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   "dependencies": {
     "@babel/core": "^7.9.0",
     "express": "^4.17.1",
+    "express-pouchdb": "^4.2.0",
     "lit-html": "^1.2.1",
     "mongodb": "^3.5.5",
     "node-sass": "^4.13.1",
