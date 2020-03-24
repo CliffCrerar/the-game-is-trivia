@@ -3,7 +3,7 @@
  */
 import { html } from 'lit-html'
 
-const InnerMain = () => html`<div class="main-inner box-shadow-2">
+const OpponentList = () => html`<div class="main-inner box-shadow-2">
     <h3>Players Online</h3>
     <hr>
     <div class="player-listing">
