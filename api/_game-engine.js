@@ -17,12 +17,11 @@ const lobby = new PouchDB( 'lobby', { adapter: 'memory' } )
 
 const pouchExpressApp = pouchDbExpress( PouchDB );
 
-function changeListener ( event ) {
-    console.log( 'Change: ', event );
-}
-
 lobby.addListener( 'changes', changeListener )
 
+function changeListener ( event ) {
+    console.log( 'LOBBY: ', event );
+}
 
 
 export { pouchExpressApp, PouchDB }

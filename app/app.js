@@ -24,7 +24,9 @@ const [
     seoFiles = join( staticFiles, 'seo' ),
     scrFiles = join( staticFiles, 'js' ),
     indexMime = 'text/html',
-    sMime = 'text/javascript';
+    sMime = 'text/javascript',
+    icons = join( staticFiles, 'style/fa/icons.css' ),
+    faFontFiles = join( staticFiles, 'style/fa' );
 
 console.log( 'DIRNAME', __dirname );
 console.log( 'bundlePath: ', resolve(), '\n', readDir( resolve( __dirname, 'public/js' ) )[ 0 ] );
@@ -73,7 +75,10 @@ sassFile( './public/style/global.scss' );
 /**
  * @description Generic route to handle logging
  */
-app.all( '*', ( { path }, { statusCode }, next ) => {
+app.all( '*', ( { path, query, body }, { statusCode }, next ) => {
+    console.log( 'query: ', query );
+    console.log( 'body', body );
+    console.log( statusCode, ' PATH: ', path, query && `QUERY: ${ JSON.stringify( query ) }` );
     console.log( statusCode, ' PATH: ', path );
     next();
 } )
@@ -82,15 +87,23 @@ app.all( '*', ( { path }, { statusCode }, next ) => {
  */
 app.use( serveStatic( staticFiles ) );
 
-app.use( '/seo', serveStatic( seoFiles ) )
+app.use( '/fa', serveStatic( faFontFiles ) )
+
+app.use( '/icons', serveStatic( icons ) );
+
+app.use( '/seo', serveStatic( seoFiles ) );
 
 app.use( '/global-stylesheet', serveStatic( globalStyleSheet ) );
 
 /**
  * @description Application end points
  */
-app.get( '/', ( req, res ) => streamResource( indexFile, indexMime, res ) );
 
 app.get( '/bundle', ( req, res ) => streamResource( scriptBundle( scrFiles ), sMime, res ) );
+
+app.post( '/username', ( req, res ) => {
+    console.log( req.body );
+    res.send( 'posted bitch' );
+} )
 
 export default app;

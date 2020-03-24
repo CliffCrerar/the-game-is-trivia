@@ -4,9 +4,7 @@
 
 import PouchDB from 'pouchdb';
 
-( ( Pouch ) => {
+const Lobby = new PouchDB( location.origin + '/api/lobby' );
 
-    window.PouchDB = Pouch;
-    window.Lobby = new PouchDB( location.origin + '/api/lobby' );
+export default Lobby;
 
-} )( PouchDB );

@@ -85,6 +85,11 @@ function configureBrowserCode () {
         output: {
             filename: outFileName,
             path: outFilePath
+        },
+        module: {
+            rules: [
+                { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+            ]
         }
     } ).run( ( err ) => {
         try {

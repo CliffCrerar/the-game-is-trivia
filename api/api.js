@@ -3,7 +3,7 @@
  */
 
 import express from 'express';
-import { pouchExpressApp, PouchDB } from './game-engine';
+import { pouchExpressApp, PouchDB } from './_game-engine';
 
 const
     api = express.Router(),

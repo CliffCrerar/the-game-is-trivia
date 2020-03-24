@@ -26,3 +26,11 @@
 [Mon, 23 Mar 2020 19:30:54 GMT] [info] [<0.000.0>] ::1 - - GET /lobby/_all_docs? 200
 [Mon, 23 Mar 2020 19:31:13 GMT] [info] [<0.000.0>] ::1 - - GET /lobby/_all_docs? 304
 [Mon, 23 Mar 2020 19:31:52 GMT] [info] [<0.000.0>] ::1 - - GET /lobby/_all_docs? 304
+[Tue, 24 Mar 2020 21:13:46 GMT] [info] [<0.000.0>] ::1 - - GET /lobby/ 200
+[Tue, 24 Mar 2020 21:13:46 GMT] [info] [<0.000.0>] ::1 - - PUT /lobby/31cc4a50-4879-2adb-5fc2-541bbc59a734 201
+[Tue, 24 Mar 2020 21:14:07 GMT] [info] [<0.000.0>] ::1 - - PUT /lobby/ce66cd5f-5b95-7fb2-ca82-9ebcd8c3d4f8 201
+[Tue, 24 Mar 2020 21:17:07 GMT] [info] [<0.000.0>] ::1 - - PUT /lobby/c08162d9-9f6c-5574-d2c3-a7a4136d55ad 201
+[Tue, 24 Mar 2020 21:17:29 GMT] [info] [<0.000.0>] ::1 - - GET /lobby/ 200
+[Tue, 24 Mar 2020 21:17:29 GMT] [info] [<0.000.0>] ::1 - - PUT /lobby/67078e9c-1382-d131-6dd0-7152a624a483 201
+[Tue, 24 Mar 2020 21:17:53 GMT] [info] [<0.000.0>] ::1 - - GET /lobby/ 200
+[Tue, 24 Mar 2020 21:17:53 GMT] [info] [<0.000.0>] ::1 - - PUT /lobby/916a0019-d9ab-3cf8-e3d3-db2e9f50fd2a 201
