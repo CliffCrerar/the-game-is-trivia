@@ -6,11 +6,34 @@ import fs from 'fs';
 import path from 'path';
 import sass from 'node-sass';
 
-const [ { createReadStream, readFileSync: read, writeFileSync: write }, { join } ] = [ fs, path ]
-const app = express.Router();
+const [
+    {
+        createReadStream: readStream,
+        readFileSync: read,
+        writeFileSync: write,
+        readdirSync: readDir
+    },
+    {
+        join,
+        resolve
+    } ] = [ fs, path ],
+    app = express.Router(),
+    staticFiles = 'public/',
+    indexFile = join( staticFiles, 'index.html' ),
+    globalStyleSheet = join( staticFiles, 'style/global.css' ),
+    seoFiles = join( staticFiles, 'seo' ),
+    scrFiles = join( staticFiles, 'js' ),
+    indexMime = 'text/html',
+    sMime = 'text/javascript',
+    icons = join( staticFiles, 'style/fa/icons.css' ),
+    faFontFiles = join( staticFiles, 'style/fa' );
+
+console.log( 'DIRNAME', __dirname );
+console.log( 'bundlePath: ', resolve(), '\n', readDir( resolve( __dirname, 'public/js' ) )[ 0 ] );
 
 /**
  * @function static shorthand function for the express static function
+ * @description TODO:
  */
 function serveStatic ( staticContentPath ) {
     return express.static( join( __dirname, staticContentPath ) )
@@ -18,50 +41,69 @@ function serveStatic ( staticContentPath ) {
 
 /**
  * @function streamResource
- * Stream resources requested by front end
+ * @description Stream resources requested by front end
  */
 function streamResource ( resourcePath, mime, responseObject ) {
     try {
-        createReadStream( join( __dirname, resourcePath ).pipe( res.set( mime ).status( 200 ) ) )
+        readStream( join( __dirname, resourcePath ) )
+            .pipe( responseObject.set( mime ).status( 200 ) )
     } catch ( err ) {
-        responseObject.status( 500 ).send( err );
+        console.error( err );
+        responseObject.status( 500 ).send( { message: err.message, stack: err.stack } );
     }
 };
-
+/**
+ * @function sassFile
+ * @description creates a css file from a scss file
+ */
 function sassFile ( file ) {
     const origin = join( __dirname, file );
-    const { stats, css } = sass.renderSync( { data: read( origin, 'utf8' ) } );
+    const { css } = sass.renderSync( { data: read( origin, 'utf8' ) } );
     return write( origin.replace( 'scss', 'css' ), css.toString(), 'utf8' );
 }
-
+/**
+ * @function scriptBundle 
+ * @description reads the public/js folder to see the latest hashed file
+ */
+function scriptBundle ( path ) {
+    return join( path, readDir( resolve( __dirname, path ) )[ 0 ] );
+}
 /**
  * Resolve SASS files to css files
  */
 sassFile( './public/style/global.scss' );
-
 /**
- * Generic route to handle logging
+ * @description Generic route to handle logging
  */
-app.all( '*', ( { path }, { statusCode }, next ) => {
+app.all( '*', ( { path, query, body }, { statusCode }, next ) => {
+    console.log( 'query: ', query );
+    console.log( 'body', body );
+    console.log( statusCode, ' PATH: ', path, query && `QUERY: ${ JSON.stringify( query ) }` );
     console.log( statusCode, ' PATH: ', path );
     next();
 } )
+/**
+ * @description application static routes
+ */
+app.use( serveStatic( staticFiles ) );
+
+app.use( '/fa', serveStatic( faFontFiles ) )
+
+app.use( '/icons', serveStatic( icons ) );
+
+app.use( '/seo', serveStatic( seoFiles ) );
+
+app.use( '/global-stylesheet', serveStatic( globalStyleSheet ) );
 
 /**
- * Application front end routing
+ * @description Application end points
  */
-app.use( '/', serveStatic( 'public' ) );
 
-app.use( '/', serveStatic( 'public/seo' ) );
+app.get( '/bundle', ( req, res ) => streamResource( scriptBundle( scrFiles ), sMime, res ) );
 
-app.use( '/', serveStatic( 'js' ) )
-
-app.use( '/global-stylesheet', serveStatic( 'public/style/global.css' ) );
-
-app.get( '/', ( req, res ) => streamResource( 'views/public/index.html', 'text/html', res ) );
-
-app.get( '/testscript', ( req, res ) => streamResource( 'views/js/layout.js', 'text/javascript  ', res ) );
-
-app.get( '/layout', ( req, res ) => streamResource( 'views/js/layout.js', 'text/javascript', res ) );
+app.post( '/username', ( req, res ) => {
+    console.log( req.body );
+    res.send( 'posted bitch' );
+} )
 
 export default app;

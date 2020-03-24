@@ -28,6 +28,7 @@
 		"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
 		"javascript.preferences.quoteStyle": "single",
 		"javascript.referencesCodeLens.enabled": true,
-		"javascript.suggest.completeFunctionCalls": true
+		"javascript.suggest.completeFunctionCalls": true,
+		"npm.bin": "npm"
 	}
 }

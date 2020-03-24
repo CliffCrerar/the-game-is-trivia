@@ -3,24 +3,18 @@
  */
 
 import express from 'express';
-import PouchDB from './server-db-conf';
-import fs from 'fs'
+import { pouchExpressApp, PouchDB } from './_game-engine';
+
+const
+    api = express.Router(),
+    node = new PouchDB( 'test-node', { adapter: 'memory' } );
 
 
-
-const api = express.Router();
-const pouchdb = new PouchDB( 'lobby' )
-const { createReadStream } = fs;
+api.use( pouchExpressApp );
 
 api.all( '*', ( { path }, { statusCode }, next ) => {
     console.log( 'API-', statusCode, 'PATH: ', path )
     next()
 } )
-
-api.get( '/pouchdb', ( req, res ) => res.status( 200 ).send( pouchdb ) )
-
-// api.get( '/api/pouchdb', ( req, res ) => {
-
-// } )
 
 export default api;
