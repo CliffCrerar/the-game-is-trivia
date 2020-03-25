@@ -4,8 +4,8 @@
  */
 
 import { html, render } from 'lit-html';
-import { body, byId } from '../utils/web-tools';
-import { create } from '../utils/web-tools';
+import { body, byId } from '../tools';
+import { create } from '../tools';
 import guid from 'guid';
 
 function appAlerts ( alertMessage = 'Pass a message', alertType = 'default', timeout = 3000 ) {

@@ -8,7 +8,7 @@ import OpponentList from './_opponents';
 import EnterUserName from './_user-name';
 import Footer from './_footer';
 import { html, render } from 'lit-html';
-import { byTag } from '../utils/web-tools';
+import { byTag } from '../tools';
 
 const NavBarTitle = 'Movie Trivia';
 const InitialHeader = 'Lobby';

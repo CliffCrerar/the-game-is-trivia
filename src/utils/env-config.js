@@ -7,6 +7,7 @@
 
 import fs from 'fs';
 import path from 'path';
+
 const [ { readFileSync: read }, { resolve } ] = [ fs, path ];
 console.log( 'resolve( .env ): ', resolve( '.env' ) );
 function configureEnvironment () {
