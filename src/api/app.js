@@ -73,8 +73,6 @@ sassFile( './public/style/global.scss' );
  * @description Generic route to handle logging
  */
 app.all( '*', ( { path, query, body }, { statusCode }, next ) => {
-    console.log( 'query: ', query );
-    console.log( 'body', body );
     console.log( statusCode, ' PATH: ', path, query && `QUERY: ${ JSON.stringify( query ) }` );
     console.log( statusCode, ' PATH: ', path );
     next();
@@ -84,11 +82,13 @@ app.all( '*', ( { path, query, body }, { statusCode }, next ) => {
  */
 app.use( serveStatic( staticFiles ) );
 
+app.use( '/', serveStatic( seoFiles ) );
+
 app.use( '/fa', serveStatic( faFontFiles ) );
 
 app.use( '/icons', serveStatic( icons ) );
 
-app.use( '/seo', serveStatic( seoFiles ) );
+
 
 app.use( '/global-stylesheet', serveStatic( globalStyleSheet ) );
 
@@ -97,10 +97,5 @@ app.use( '/global-stylesheet', serveStatic( globalStyleSheet ) );
  */
 
 app.get( '/bundle', ( req, res ) => streamResource( scriptBundle( scrFiles ), sMime, res ) );
-
-app.post( '/username', ( req, res ) => {
-    console.log( req.body );
-    res.send( 'posted bitch' );
-} );
 
 export default app;

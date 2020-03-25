@@ -2,14 +2,13 @@
  * Application entry point
  */
 
-import configureEnvironment from './utils/env-config';
+import configureEnvironment from './src/utils/env-config';
 import testConnect from './test-connect';
 import { MongoClient } from 'mongodb';
-import __ from './utils/decode';
+import __ from './src/utils/decode';
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
-import app from './app';
 import api from './api';
 import fs from 'fs';
 import os from 'os';
@@ -114,8 +113,8 @@ function configureAndTestDbConnection () {
 function configureServer ( callback ) {
     const server = express();
     const port = normalizePort( process.env.PORT || defaultPort );
-    server.use( '/', app );
-    server.use( '/api', api );
+
+    server.use( '/', api );
     return callback( server, port );
 }
 

@@ -21,7 +21,9 @@ const userSchema = new Schema( { user_id: String, userName: String } );
 
 const users = new model( 'user', userSchema );
 
-export { users };
+const Users = users.find().exec();
+
+export { Users };
 
 
 

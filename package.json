@@ -10,7 +10,10 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "app/public/js/*"
+      "./app/public/js/*",
+      "./lit-plugin.log",
+      "./log.txt",
+      "./config.json"
     ],
     "delay": "0"
   },
