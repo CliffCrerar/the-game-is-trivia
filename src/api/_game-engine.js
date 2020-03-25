@@ -14,6 +14,8 @@ PouchDB
     .plugin( http )
     .plugin( replicate );
 
+let Users;
+
 const Lobby = new PouchDB( 'lobby', { adapter: 'memory' } );
 
 const pouchExpressApp = pouchDbExpress( PouchDB );
@@ -33,10 +35,5 @@ function handleChange ( change ) {
 
 function handleError ( err ) { console.log( 'ERR:', err ); }
 
-async function absorbUsers () {
-    const Users = await users.find().exec();
-    console.log( 'Users: ', Users );
-    console.log( 'users: ', users );
-}
 
-export { pouchExpressApp, PouchDB, absorbUsers };
+export { pouchExpressApp, PouchDB };

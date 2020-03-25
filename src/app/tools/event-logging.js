@@ -3,7 +3,7 @@
  * @description TODO
  */
 
-import { $ } from './web-tools';
+import { $ } from '../tools';
 
 const excludeEvents = [ 'pointerdown', 'mousedown', 'pointerup', 'mouseup' ];
 

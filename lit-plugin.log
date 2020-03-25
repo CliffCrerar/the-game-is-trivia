@@ -1,0 +1,336 @@
+[3/25/2020, 5:45:28 PM] [[31mERROR[0m] [
+  [32m"Error [getSignatureHelpItems]: (TypeError: Cannot read property 'emitNode' of undefined\n"[39m +
+    [32m'    at Object.getCommentRange (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:71102:29)\n'[39m +
+    [32m'    at emitNodeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:95676:51)\n'[39m +
+    [32m'    at emitList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:95555:13)\n'[39m +
+    [32m'    at Object.writeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:92891:13)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119315:29\n'[39m +
+    [32m'    at Object.mapToDisplayParts (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:107201:13)\n'[39m +
+    [32m'    at itemInfoForParameters (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119312:41)\n'[39m +
+    [32m'    at getSignatureHelpItem (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119278:95)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119251:79\n'[39m +
+    [32m'    at Array.map (<anonymous>)\n'[39m +
+    [32m'    at createSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119251:36)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:118843:23\n'[39m +
+    [32m'    at Object.runWithCancellationToken (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:34552:28)\n'[39m +
+    [32m'    at Object.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:118841:32)\n'[39m +
+    [32m'    at Proxy.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:135509:37)\n'[39m +
+    [32m'    at Proxy.<anonymous> (/Users/cliff/.vscode/extensions/bierner.lit-html-1.11.1/node_modules/typescript-template-language-service-decorator/lib/template-language-service-decorator.js:183:24)\n'[39m +
+    [32m'    at TsLitPlugin.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/ts-lit-plugin/ts-lit-plugin.js:92:43)\n'[39m +
+    [32m'    at /Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:110:30\n'[39m +
+    [32m'    at nextLanguageService.<computed> (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:57:71)\n'[39m +
+    [32m'    at Object.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:145:26)\n'[39m +
+    [32m'    at IOSession.Session.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:145510:62)\n'[39m +
+    [32m'    at Session.handlers.ts.createMapFromTemplate._a.<computed> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:144404:61)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146003:88\n'[39m +
+    [32m'    at IOSession.Session.executeWithRequestId (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:145994:28)\n'[39m +
+    [32m'    at IOSession.Session.executeCommand (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146003:33)\n'[39m +
+    [32m'    at IOSession.Session.onMessage (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146027:35)\n'[39m +
+    [32m'    at Interface.<anonymous> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:147342:27)\n'[39m +
+    [32m'    at Interface.emit (events.js:203:13)\n'[39m +
+    [32m'    at Interface._onLine (readline.js:316:10)\n'[39m +
+    [32m'    at Interface._normalWrite (readline.js:461:12)\n'[39m +
+    [32m'    at Socket.ondata (readline.js:172:10)\n'[39m +
+    [32m'    at Socket.emit (events.js:203:13)\n'[39m +
+    [32m'    at addChunk (_stream_readable.js:295:12)\n'[39m +
+    [32m'    at readableAddChunk (_stream_readable.js:276:11)\n'[39m +
+    [32m'    at Socket.Readable.push (_stream_readable.js:210:10)\n'[39m +
+    [32m"    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)) Cannot read property 'emitNode' of undefined"[39m,
+  TypeError: Cannot read property 'emitNode' of undefined
+      at Object.getCommentRange (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:71102:29)
+      at emitNodeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:95676:51)
+      at emitList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:95555:13)
+      at Object.writeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:92891:13)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119315:29
+      at Object.mapToDisplayParts (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:107201:13)
+      at itemInfoForParameters (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119312:41)
+      at getSignatureHelpItem (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119278:95)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119251:79
+      at Array.map (<anonymous>)
+      at createSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119251:36)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:118843:23
+      at Object.runWithCancellationToken (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:34552:28)
+      at Object.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:118841:32)
+      at Proxy.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:135509:37)
+      at Proxy.<anonymous> (/Users/cliff/.vscode/extensions/bierner.lit-html-1.11.1/node_modules/[4mtypescript-template-language-service-decorator[24m/lib/template-language-service-decorator.js:183:24)
+      at TsLitPlugin.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/ts-lit-plugin/ts-lit-plugin.js:92:43)
+      at /Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:110:30
+      at nextLanguageService.<computed> (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:57:71)
+      at Object.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:145:26)
+      at IOSession.Session.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:145510:62)
+      at Session.handlers.ts.createMapFromTemplate._a.<computed> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:144404:61)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146003:88
+      at IOSession.Session.executeWithRequestId (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:145994:28)
+      at IOSession.Session.executeCommand (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146003:33)
+      at IOSession.Session.onMessage (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146027:35)
+      at Interface.<anonymous> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:147342:27)
+  [90m    at Interface.emit (events.js:203:13)[39m
+  [90m    at Interface._onLine (readline.js:316:10)[39m
+  [90m    at Interface._normalWrite (readline.js:461:12)[39m
+  [90m    at Socket.ondata (readline.js:172:10)[39m
+  [90m    at Socket.emit (events.js:203:13)[39m
+  [90m    at addChunk (_stream_readable.js:295:12)[39m
+  [90m    at readableAddChunk (_stream_readable.js:276:11)[39m
+  [90m    at Socket.Readable.push (_stream_readable.js:210:10)[39m
+  [90m    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)[39m
+]
+[3/25/2020, 5:51:27 PM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 5:59:50 PM] [[31mERROR[0m] [
+  [32m"Error [getSignatureHelpItems]: (TypeError: Cannot read property 'emitNode' of undefined\n"[39m +
+    [32m'    at Object.getCommentRange (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:71102:29)\n'[39m +
+    [32m'    at emitNodeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:95676:51)\n'[39m +
+    [32m'    at emitList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:95555:13)\n'[39m +
+    [32m'    at Object.writeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:92891:13)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119315:29\n'[39m +
+    [32m'    at Object.mapToDisplayParts (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:107201:13)\n'[39m +
+    [32m'    at itemInfoForParameters (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119312:41)\n'[39m +
+    [32m'    at getSignatureHelpItem (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119278:95)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119251:79\n'[39m +
+    [32m'    at Array.map (<anonymous>)\n'[39m +
+    [32m'    at createSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119251:36)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:118843:23\n'[39m +
+    [32m'    at Object.runWithCancellationToken (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:34552:28)\n'[39m +
+    [32m'    at Object.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:118841:32)\n'[39m +
+    [32m'    at Proxy.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:135509:37)\n'[39m +
+    [32m'    at Proxy.<anonymous> (/Users/cliff/.vscode/extensions/bierner.lit-html-1.11.1/node_modules/typescript-template-language-service-decorator/lib/template-language-service-decorator.js:183:24)\n'[39m +
+    [32m'    at TsLitPlugin.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/ts-lit-plugin/ts-lit-plugin.js:92:43)\n'[39m +
+    [32m'    at /Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:110:30\n'[39m +
+    [32m'    at nextLanguageService.<computed> (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:57:71)\n'[39m +
+    [32m'    at Object.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:145:26)\n'[39m +
+    [32m'    at IOSession.Session.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:145510:62)\n'[39m +
+    [32m'    at Session.handlers.ts.createMapFromTemplate._a.<computed> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:144404:61)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146003:88\n'[39m +
+    [32m'    at IOSession.Session.executeWithRequestId (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:145994:28)\n'[39m +
+    [32m'    at IOSession.Session.executeCommand (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146003:33)\n'[39m +
+    [32m'    at IOSession.Session.onMessage (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146027:35)\n'[39m +
+    [32m'    at Interface.<anonymous> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:147342:27)\n'[39m +
+    [32m'    at Interface.emit (events.js:203:13)\n'[39m +
+    [32m'    at Interface._onLine (readline.js:316:10)\n'[39m +
+    [32m'    at Interface._normalWrite (readline.js:461:12)\n'[39m +
+    [32m'    at Socket.ondata (readline.js:172:10)\n'[39m +
+    [32m'    at Socket.emit (events.js:203:13)\n'[39m +
+    [32m'    at addChunk (_stream_readable.js:295:12)\n'[39m +
+    [32m'    at readableAddChunk (_stream_readable.js:276:11)\n'[39m +
+    [32m'    at Socket.Readable.push (_stream_readable.js:210:10)\n'[39m +
+    [32m"    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)) Cannot read property 'emitNode' of undefined"[39m,
+  TypeError: Cannot read property 'emitNode' of undefined
+      at Object.getCommentRange (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:71102:29)
+      at emitNodeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:95676:51)
+      at emitList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:95555:13)
+      at Object.writeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:92891:13)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119315:29
+      at Object.mapToDisplayParts (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:107201:13)
+      at itemInfoForParameters (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119312:41)
+      at getSignatureHelpItem (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119278:95)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119251:79
+      at Array.map (<anonymous>)
+      at createSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119251:36)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:118843:23
+      at Object.runWithCancellationToken (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:34552:28)
+      at Object.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:118841:32)
+      at Proxy.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:135509:37)
+      at Proxy.<anonymous> (/Users/cliff/.vscode/extensions/bierner.lit-html-1.11.1/node_modules/[4mtypescript-template-language-service-decorator[24m/lib/template-language-service-decorator.js:183:24)
+      at TsLitPlugin.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/ts-lit-plugin/ts-lit-plugin.js:92:43)
+      at /Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:110:30
+      at nextLanguageService.<computed> (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:57:71)
+      at Object.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:145:26)
+      at IOSession.Session.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:145510:62)
+      at Session.handlers.ts.createMapFromTemplate._a.<computed> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:144404:61)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146003:88
+      at IOSession.Session.executeWithRequestId (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:145994:28)
+      at IOSession.Session.executeCommand (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146003:33)
+      at IOSession.Session.onMessage (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146027:35)
+      at Interface.<anonymous> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:147342:27)
+  [90m    at Interface.emit (events.js:203:13)[39m
+  [90m    at Interface._onLine (readline.js:316:10)[39m
+  [90m    at Interface._normalWrite (readline.js:461:12)[39m
+  [90m    at Socket.ondata (readline.js:172:10)[39m
+  [90m    at Socket.emit (events.js:203:13)[39m
+  [90m    at addChunk (_stream_readable.js:295:12)[39m
+  [90m    at readableAddChunk (_stream_readable.js:276:11)[39m
+  [90m    at Socket.Readable.push (_stream_readable.js:210:10)[39m
+  [90m    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)[39m
+]
+[3/25/2020, 6:39:45 PM] [[31mERROR[0m] [
+  [32m"Error [getSignatureHelpItems]: (TypeError: Cannot read property 'emitNode' of undefined\n"[39m +
+    [32m'    at Object.getCommentRange (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:71102:29)\n'[39m +
+    [32m'    at emitNodeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:95676:51)\n'[39m +
+    [32m'    at emitList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:95555:13)\n'[39m +
+    [32m'    at Object.writeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:92891:13)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119315:29\n'[39m +
+    [32m'    at Object.mapToDisplayParts (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:107201:13)\n'[39m +
+    [32m'    at itemInfoForParameters (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119312:41)\n'[39m +
+    [32m'    at getSignatureHelpItem (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119278:95)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119251:79\n'[39m +
+    [32m'    at Array.map (<anonymous>)\n'[39m +
+    [32m'    at createSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:119251:36)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:118843:23\n'[39m +
+    [32m'    at Object.runWithCancellationToken (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:34552:28)\n'[39m +
+    [32m'    at Object.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:118841:32)\n'[39m +
+    [32m'    at Proxy.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:135509:37)\n'[39m +
+    [32m'    at Proxy.<anonymous> (/Users/cliff/.vscode/extensions/bierner.lit-html-1.11.1/node_modules/typescript-template-language-service-decorator/lib/template-language-service-decorator.js:183:24)\n'[39m +
+    [32m'    at TsLitPlugin.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/ts-lit-plugin/ts-lit-plugin.js:92:43)\n'[39m +
+    [32m'    at /Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:110:30\n'[39m +
+    [32m'    at nextLanguageService.<computed> (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:57:71)\n'[39m +
+    [32m'    at Object.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:145:26)\n'[39m +
+    [32m'    at IOSession.Session.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:145510:62)\n'[39m +
+    [32m'    at Session.handlers.ts.createMapFromTemplate._a.<computed> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:144404:61)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146003:88\n'[39m +
+    [32m'    at IOSession.Session.executeWithRequestId (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:145994:28)\n'[39m +
+    [32m'    at IOSession.Session.executeCommand (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146003:33)\n'[39m +
+    [32m'    at IOSession.Session.onMessage (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146027:35)\n'[39m +
+    [32m'    at Interface.<anonymous> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:147342:27)\n'[39m +
+    [32m'    at Interface.emit (events.js:203:13)\n'[39m +
+    [32m'    at Interface._onLine (readline.js:316:10)\n'[39m +
+    [32m'    at Interface._normalWrite (readline.js:461:12)\n'[39m +
+    [32m'    at Socket.ondata (readline.js:172:10)\n'[39m +
+    [32m'    at Socket.emit (events.js:203:13)\n'[39m +
+    [32m'    at addChunk (_stream_readable.js:295:12)\n'[39m +
+    [32m'    at readableAddChunk (_stream_readable.js:276:11)\n'[39m +
+    [32m'    at Socket.Readable.push (_stream_readable.js:210:10)\n'[39m +
+    [32m"    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)) Cannot read property 'emitNode' of undefined"[39m,
+  TypeError: Cannot read property 'emitNode' of undefined
+      at Object.getCommentRange (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:71102:29)
+      at emitNodeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:95676:51)
+      at emitList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:95555:13)
+      at Object.writeList (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:92891:13)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119315:29
+      at Object.mapToDisplayParts (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:107201:13)
+      at itemInfoForParameters (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119312:41)
+      at getSignatureHelpItem (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119278:95)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119251:79
+      at Array.map (<anonymous>)
+      at createSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:119251:36)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:118843:23
+      at Object.runWithCancellationToken (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:34552:28)
+      at Object.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:118841:32)
+      at Proxy.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:135509:37)
+      at Proxy.<anonymous> (/Users/cliff/.vscode/extensions/bierner.lit-html-1.11.1/node_modules/[4mtypescript-template-language-service-decorator[24m/lib/template-language-service-decorator.js:183:24)
+      at TsLitPlugin.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/ts-lit-plugin/ts-lit-plugin.js:92:43)
+      at /Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:110:30
+      at nextLanguageService.<computed> (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:57:71)
+      at Object.getSignatureHelpItems (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:145:26)
+      at IOSession.Session.getSignatureHelpItems (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:145510:62)
+      at Session.handlers.ts.createMapFromTemplate._a.<computed> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:144404:61)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146003:88
+      at IOSession.Session.executeWithRequestId (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:145994:28)
+      at IOSession.Session.executeCommand (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146003:33)
+      at IOSession.Session.onMessage (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146027:35)
+      at Interface.<anonymous> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:147342:27)
+  [90m    at Interface.emit (events.js:203:13)[39m
+  [90m    at Interface._onLine (readline.js:316:10)[39m
+  [90m    at Interface._normalWrite (readline.js:461:12)[39m
+  [90m    at Socket.ondata (readline.js:172:10)[39m
+  [90m    at Socket.emit (events.js:203:13)[39m
+  [90m    at addChunk (_stream_readable.js:295:12)[39m
+  [90m    at readableAddChunk (_stream_readable.js:276:11)[39m
+  [90m    at Socket.Readable.push (_stream_readable.js:210:10)[39m
+  [90m    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)[39m
+]
+[3/25/2020, 7:20:20 PM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:30:22 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:31:27 PM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:31:52 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:31:52 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:31:55 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:31:59 PM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:32:54 PM] [[31mERROR[0m] [
+  [32m'Error [getSignatureHelpItems]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:33:51 PM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:34:52 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:37:15 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:37:19 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:40:31 PM] [[31mERROR[0m] [
+  [32m'Error [getSignatureHelpItems]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:40:32 PM] [[31mERROR[0m] [
+  [32m'Error [getSignatureHelpItems]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:40:52 PM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:41:55 PM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:50:34 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:51:20 PM] [[31mERROR[0m] [
+  [32m'Error [getSignatureHelpItems]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:51:43 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:51:48 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:51:53 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:52:01 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:52:04 PM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 7:53:38 PM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 8:53:28 PM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 8:54:03 PM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
