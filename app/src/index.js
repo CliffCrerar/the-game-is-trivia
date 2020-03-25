@@ -1,18 +1,25 @@
 /**
  * @description browser code entry point
  */
+import App from './components';
 import { $, create, byId, byName, byTag } from './_declarations';
 import { render, html } from 'lit-html';
-import App from './components';
-import './pouchdb';
 import { eventLogging } from './utils';
+import './pouchdb';
 
-// eventLogging();
+const appFrame = html`
+        <nav></nav>
+        <header></header>
+        <main></main>
+        <footer></footer>
+    `;
 
-// document.addEventListener( 'visibilitychange', visibilityStateChangeEvent )
+( ( callback ) => {
+    render( appFrame, byId( 'app-root' ) );
+    return callback();
+} )( function () {
+    App.initialize();
+} );;
 
-// function visibilityStateChangeEvent ( ev ) {
 
-// }
-
-( ( app ) => render( app, byId( 'app-root' ) ) )( App )
+// ( ( app ) => render( app, byId( 'app-root' ) ) )( App );

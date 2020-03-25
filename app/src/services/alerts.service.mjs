@@ -12,7 +12,7 @@ function appAlerts ( alertMessage = 'Pass a message', alertType = 'default', tim
     // const alertsDiv = byId( 'alerts' ) === null ? create( 'div' ) : byId( 'alerts' );
     const alertsDiv = getAlertsContainer();
     const thisAlertContainer = create( 'div' );
-    const alertIcon = getAlertIcon( alertType );
+
     const alert = html`
             <style>
                 #alerts{

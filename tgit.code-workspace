@@ -29,6 +29,39 @@
 		"javascript.preferences.quoteStyle": "single",
 		"javascript.referencesCodeLens.enabled": true,
 		"javascript.suggest.completeFunctionCalls": true,
-		"npm.bin": "npm"
+		"npm.bin": "npm",
+		"lit-plugin.logging": "error",
+		"lit-plugin.rules.no-unclosed-tag": "default",
+		"lit-plugin.securitySystem": "ClosureSafeTypes",
+		"lit-plugin.globalTags": [
+			"div",
+			"header",
+			"main",
+			"footer",
+			"section"
+		],
+		"lit-plugin.cssTemplateTags": [
+			"css",
+			"html"
+		],
+		"javascript.format.semicolons": "insert",
+		"javascript.updateImportsOnFileMove.enabled": "always",
+		"typescript.check.npmIsInstalled": false,
+		"typescript.format.enable": false,
+		"typescript.referencesCodeLens.showOnAllFunctions": false,
+		"typescript.referencesCodeLens.enabled": false,
+		"typescript.suggest.enabled": false,
+		"typescript.suggest.paths": false,
+		"typescript.suggestionActions.enabled": false,
+		"typescript.surveys.enabled": false,
+		"typescript.suggest.includeAutomaticOptionalChainCompletions": false,
+		"typescript.suggest.completeJSDocs": false,
+		"typescript.suggest.autoImports": false,
+		"typescript.reportStyleChecksAsWarnings": false,
+		"typescript.tsc.autoDetect": "off",
+		"typescript.tsserver.useSeparateSyntaxServer": false,
+		"typescript.validate.enable": false,
+		"javascript.validate.enable": false,
+		"editor.showUnused": true
 	}
 }
