@@ -2,10 +2,9 @@
  * @description browser code entry point
  */
 import App from './components';
-import { $, create, byId, byName, byTag } from './_declarations';
+import { $, create, byId, byName, byTag } from './utils/web-tools';
 import { render, html } from 'lit-html';
 import { eventLogging } from './utils';
-import './pouchdb';
 
 const appFrame = html`
         <nav></nav>

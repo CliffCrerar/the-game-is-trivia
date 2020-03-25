@@ -11,17 +11,23 @@ import pouchDbExpress from 'express-pouchdb';
 PouchDB
     .plugin( mem )
     .plugin( http )
-    .plugin( replicate )
+    .plugin( replicate );
 
-const lobby = new PouchDB( 'lobby', { adapter: 'memory' } )
+const Lobby = new PouchDB( 'lobby', { adapter: 'memory' } );
 
 const pouchExpressApp = pouchDbExpress( PouchDB );
 
-lobby.addListener( 'changes', changeListener )
+Lobby.changes( {
+    since: 'now',
+    live: true,
+    include_docs: true
+} ).on( 'change', function ( change ) {
+    console.log( 'change: ', change );
 
-function changeListener ( event ) {
-    console.log( 'LOBBY: ', event );
-}
+} ).on( 'error', function ( err ) {
+    console.log( 'err: ', err );
+
+} );
 
 
-export { pouchExpressApp, PouchDB }
+export { pouchExpressApp, PouchDB };

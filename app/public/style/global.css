@@ -56,9 +56,10 @@ nav {
   background: white;
   background: linear-gradient(180deg, white 0%, white 81%, #d5d5d5 100%); }
 
-.nav-brand {
-  margin: 0px;
-  display: block; }
+main .main-inner {
+  max-width: 500px;
+  margin: auto;
+  padding: 16px; }
 
 header h2 {
   text-align: center; }
@@ -103,6 +104,10 @@ button {
   button:hover {
     border: 1px solid rgba(0, 0, 0, 0.5); }
 
+.nav-brand {
+  margin: 0px;
+  display: block; }
+
 .btn-default {
   background: silver;
   border: 1px solid grey; }
@@ -145,11 +150,6 @@ button {
 .w-100 {
   width: 100%; }
 
-main .main-inner {
-  max-width: 500px;
-  margin: auto;
-  padding: 16px; }
-
 .player-listing {
   padding: 10px;
   display: flex;
@@ -157,7 +157,4 @@ main .main-inner {
 
 .player-avatar {
   margin-right: 15px;
-  height: 2em;
-  width: 2em;
-  background: black;
-  border-radius: 50%; }
+  font-size: 2em; }
