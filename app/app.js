@@ -28,15 +28,12 @@ const [
     icons = join( staticFiles, 'style/fa/icons.css' ),
     faFontFiles = join( staticFiles, 'style/fa' );
 
-console.log( 'DIRNAME', __dirname );
-console.log( 'bundlePath: ', resolve(), '\n', readDir( resolve( __dirname, 'public/js' ) )[ 0 ] );
-
 /**
  * @function static shorthand function for the express static function
  * @description TODO:
  */
 function serveStatic ( staticContentPath ) {
-    return express.static( join( __dirname, staticContentPath ) )
+    return express.static( join( __dirname, staticContentPath ) );
 };
 
 /**
@@ -46,7 +43,7 @@ function serveStatic ( staticContentPath ) {
 function streamResource ( resourcePath, mime, responseObject ) {
     try {
         readStream( join( __dirname, resourcePath ) )
-            .pipe( responseObject.set( mime ).status( 200 ) )
+            .pipe( responseObject.set( mime ).status( 200 ) );
     } catch ( err ) {
         console.error( err );
         responseObject.status( 500 ).send( { message: err.message, stack: err.stack } );
@@ -81,13 +78,13 @@ app.all( '*', ( { path, query, body }, { statusCode }, next ) => {
     console.log( statusCode, ' PATH: ', path, query && `QUERY: ${ JSON.stringify( query ) }` );
     console.log( statusCode, ' PATH: ', path );
     next();
-} )
+} );
 /**
  * @description application static routes
  */
 app.use( serveStatic( staticFiles ) );
 
-app.use( '/fa', serveStatic( faFontFiles ) )
+app.use( '/fa', serveStatic( faFontFiles ) );
 
 app.use( '/icons', serveStatic( icons ) );
 
@@ -104,6 +101,6 @@ app.get( '/bundle', ( req, res ) => streamResource( scriptBundle( scrFiles ), sM
 app.post( '/username', ( req, res ) => {
     console.log( req.body );
     res.send( 'posted bitch' );
-} )
+} );
 
 export default app;

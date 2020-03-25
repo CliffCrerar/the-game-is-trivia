@@ -7,21 +7,36 @@ import mem from 'pouchdb-adapter-memory';
 import http from 'pouchdb-adapter-http';
 import replicate from 'pouchdb-replication';
 import pouchDbExpress from 'express-pouchdb';
+import { users } from './_game-data';
 
 PouchDB
     .plugin( mem )
     .plugin( http )
-    .plugin( replicate )
+    .plugin( replicate );
 
-const lobby = new PouchDB( 'lobby', { adapter: 'memory' } )
+const Lobby = new PouchDB( 'lobby', { adapter: 'memory' } );
 
 const pouchExpressApp = pouchDbExpress( PouchDB );
 
-lobby.addListener( 'changes', changeListener )
+Lobby.changes( {
+    since: 'now',
+    live: true,
+    include_docs: true
+} )
+    .on( 'change', handleChange )
+    .on( 'error', handleError );
 
-function changeListener ( event ) {
-    console.log( 'LOBBY: ', event );
+function handleChange ( change ) {
+    console.log( 'change: ', change );
+
 }
 
+function handleError ( err ) { console.log( 'ERR:', err ); }
 
-export { pouchExpressApp, PouchDB }
+async function absorbUsers () {
+    const Users = await users.find().exec();
+    console.log( 'Users: ', Users );
+    console.log( 'users: ', users );
+}
+
+export { pouchExpressApp, PouchDB, absorbUsers };

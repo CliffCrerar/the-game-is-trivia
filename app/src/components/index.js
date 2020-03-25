@@ -8,44 +8,47 @@ import OpponentList from './_opponents';
 import EnterUserName from './_user-name';
 import Footer from './_footer';
 import { html, render } from 'lit-html';
-import { byTag } from '../_declarations';
+import { byTag } from '../utils/web-tools';
 
 const NavBarTitle = 'Movie Trivia';
-
 const InitialHeader = 'Lobby';
-
 const FooterTitle = 'FooterText';
-
 
 const App = new AppController();
 
 function AppController () {
 
-    this.navBar;
+    this.navBarContainer; // container from the app frame
+    this.navBarComponent; // component to render in container
 
-    this.header;
+    this.headerContainer; // container from the app frame
+    this.headerComponent; // component to render in container
 
-    this.main;
+    this.mainContainer; // container from the app frame
+    this.mainComponent; // component to render in container
 
-    this.footer;
+    this.footerContainer; // container from the app frame
+    this.footerComponent; // component to render in container
 
-    this.loadNavbar = ( navBar ) => render( navBar, this.navBar );
+    /** RENDER METHODS */
+    this.renderNavbar = () => render( this.navBarComponent, this.navBarContainer );
+    this.renderHeader = () => render( this.headerComponent, this.headerContainer );
+    this.renderMain = () => render( this.mainComponent, this.mainContainer );
+    this.renderFooter = () => render( this.footerComponent, this.footerContainer );
 
-    this.loadHeader = ( header ) => render( header, this.header );
-
-    this.loadMain = ( main ) => render( main, this.main );
-
-    this.loadFooter = ( footer ) => render( footer, this.footer );
+    this.renderAll = function () {
+        this.renderNavbar();
+        this.renderHeader();
+        this.renderMain();
+        this.renderFooter();
+    };
 
     this.initialize = function () {
 
-        this.navBar = byTag( 'nav' )[ 0 ];
-
-        this.header = byTag( 'header' )[ 0 ];
-
-        this.main = byTag( 'main' )[ 0 ];
-
-        this.footer = byTag( 'footer' )[ 0 ];
+        this.navBarContainer = byTag( 'nav' )[ 0 ];
+        this.headerContainer = byTag( 'header' )[ 0 ];
+        this.mainContainer = byTag( 'main' )[ 0 ];
+        this.footerContainer = byTag( 'footer' )[ 0 ];
 
         loadComponents();
     };
@@ -53,25 +56,15 @@ function AppController () {
 
 function loadComponents () {
 
-    const navBar = new Navbar( App, NavBarTitle );
+    const checkUser = localStorage.getItem( 'user_id' ) ?? null; // check if user id is present in local storage
 
-    const header = new Header( App, InitialHeader );
+    // set components
+    App.navBarComponent = new Navbar( App, NavBarTitle );
+    App.headerComponent = new Header( App, InitialHeader );
+    App.footerComponent = new Footer( App, FooterTitle );
+    App.mainComponent = checkUser ? new OpponentList( App ) : EnterUserName( App );
 
-    const opponents = new OpponentList( App );
-
-    const footer = new Footer( App, FooterTitle );
-
-    const checkUser = localStorage.getItem( 'user_id' ) ?? null;
-
-    App.loadNavbar( navBar );
-
-    App.loadHeader( header );
-
-    checkUser
-        ? App.loadMain( opponents )
-        : App.loadMain( EnterUserName() );
-
-    App.loadFooter( footer, FooterTitle );
+    App.renderAll();
 }
 
 export default App;

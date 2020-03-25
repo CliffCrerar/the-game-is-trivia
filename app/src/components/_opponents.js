@@ -12,7 +12,7 @@ function OpponentList ( app ) {
             <h3>Players Online</h3>
             <hr>
             <div class="player-listing">
-                <div class="player-avatar"></div>
+                <div class="player-avatar fa">&#xf007;</div>
                 <div class="player-name">Player</div>
             </div>
         

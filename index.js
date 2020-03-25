@@ -2,12 +2,15 @@
  * Application entry point
  */
 
-
+import configureEnvironment from './utils/env-config';
+import testConnect from './test-connect';
+import { MongoClient } from 'mongodb';
+import __ from './utils/decode';
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
 import app from './app';
-import api from './api'
+import api from './api';
 import fs from 'fs';
 import os from 'os';
 
@@ -19,8 +22,10 @@ const
         { readFileSync: read, unlinkSync: remove, readdirSync: readDir },
         { resolve, join },
         { platform, hostname: host }
-    ] = [ fs, path, os ];
+    ] = [ fs, path, os ],
+    mongoOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 let defaultPort = 3000;
+
 
 /**
  * @function configureNodePath sets up the node path for the application
@@ -49,26 +54,13 @@ function normalizePort ( val ) {
 
     return false;
 };
-/**
- * @function configureEnvironment
- * @description environmentConfig
- * Exported result of combination of read file, resolve path, to string, split, and map.
- */
-function configureEnvironment () {
-    return read( resolve( '.env' ) )
-        .toString() // buff to string
-        .split( '\n' ) // file content to array
-        .map( pair => { // remap array values
-            const [ key, val ] = pair.split( '=' ); // use '=' as delimiter
-            process.env[ key ] = val; // create environment variables
-            return { [ key ]: val }; // return remap for pure function
-        } )
-}
+
+
 /**
  * @description Use webpack to compile browser code
  */
 function configureBrowserCode () {
-    console.log( process.env.NODE_ENV );
+
     const
         devMode = process.env.NODE_ENV === 'development',
         appEntry = {
@@ -77,7 +69,7 @@ function configureBrowserCode () {
         outFileName = devMode ? 'bundle.[name].js' : 'bundle.[hash].[name].js',
         outFilePath = resolve( 'app/public/js' );
 
-    readDir( outFilePath ).forEach( file => remove( join( outFilePath, file ) ) ) // clean path
+    readDir( outFilePath ).forEach( file => remove( join( outFilePath, file ) ) ); // clean path
     // configure front end code on return also demonstrates closures
     return webpack( {
         mode: process.env.NODE_ENV,
@@ -97,10 +89,23 @@ function configureBrowserCode () {
         } catch ( err ) {
             console.error( err.message );
             console.error( err.stack );
-            process.exit( 5 ) // exit on node code 5 fatal error
+            process.exit( 5 ); // exit on node code 5 fatal error
         }
-    } )
+    } );
+}
 
+function configureAndTestDbConnection () {
+    const { MONGOUSER, MONGOPASS, MONGOHOST, MONGODB } = process.env;
+    const connectionString = `mongodb+srv://${ __( MONGOUSER ) }:${ __( MONGOPASS ) }@${ __( MONGOHOST ) }/${ __( MONGODB ) }?retryWrites=true&w=majority`;
+    console.log( 'Connecting to Mongo Atlas' );
+    MongoClient.connect( connectionString, mongoOptions, ( err, client ) => {
+        client.on( 'close', () => console.log( '--- TEST CLIENT CLOSE ---' ) );
+        if ( err ) { throw new Error( err ); process.exit( 3 ); }
+        else {
+            console.log( 'MONGODB Connection: --- SUCCESS ---' );
+            client.close();
+        }
+    } );
 }
 
 /**
@@ -110,7 +115,7 @@ function configureServer ( callback ) {
     const server = express();
     const port = normalizePort( process.env.PORT || defaultPort );
     server.use( '/', app );
-    server.use( '/api', api )
+    server.use( '/api', api );
     return callback( server, port );
 }
 
@@ -118,11 +123,10 @@ function configureServer ( callback ) {
  * @function serverFeedback provides feedback on server start action
  */
 function serverFeedback ( port ) {
-    console.log( '|------------------------------------|' )
-    console.log( ` server running:${ host() }:${ port }  ` )
-    console.log( '|------------------------------------|' )
+    console.log( '|------------------------------------|' );
+    console.log( ` server running:${ host() }:${ port }  ` );
+    console.log( '|------------------------------------|' );
 }
-
 /**
  * @function anonymous
  * @description server startup procedure in self invoking function
@@ -130,6 +134,8 @@ function serverFeedback ( port ) {
 ( async function () {
     configureNodePath();
     configureEnvironment();
+    await configureAndTestDbConnection();
     await configureBrowserCode();
     return await configureServer( ( server, port ) => ( { server, port } ) );
-}() ).then( ( { server, port } ) => server.listen( port, serverFeedback( port ) ) )
+}() ).then( ( { server, port } ) => server.listen( port, serverFeedback( port ) ) );
+

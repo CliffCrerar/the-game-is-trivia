@@ -4,8 +4,8 @@
  */
 
 import { html, render } from 'lit-html';
-import { body, byId } from '../_declarations';
-import { create } from '../_declarations';
+import { body, byId } from '../utils/web-tools';
+import { create } from '../utils/web-tools';
 import guid from 'guid';
 
 function appAlerts ( alertMessage = 'Pass a message', alertType = 'default', timeout = 3000 ) {
@@ -60,7 +60,7 @@ function appAlerts ( alertMessage = 'Pass a message', alertType = 'default', tim
                 </div>
             </div>
         </div>
-    `
+    `;
     thisAlertContainer.id = guid.create();
 
     render( alert, thisAlertContainer );
@@ -69,8 +69,8 @@ function appAlerts ( alertMessage = 'Pass a message', alertType = 'default', tim
 
     return setTimeout( () => {
         thisAlertContainer.remove();
-        alertsDiv.children.length == 0 && alertsDiv.remove()
-    }, timeout )
+        alertsDiv.children.length == 0 && alertsDiv.remove();
+    }, timeout );
 }
 
 function getAlertsContainer () {
@@ -81,15 +81,15 @@ function getAlertsContainer () {
         alertsDiv.id = 'alerts';
         body.prepend( alertsDiv );
     }
-    return alertsDiv
+    return alertsDiv;
 }
 
 function getAlertIcon ( type ) {
     switch ( type ) {
-        case 'default': return html`<span style="margin-right: 5px" class="fa">&#xf058;</span>`
-        case 'error': return html`<span style="margin-right: 5px" class="fa">&#xf127;</span>`
-        case 'success': return html`<span style="margin-right: 5px" class="fa">&#xf046;</span>`
-        case 'warning': return html`<span style="margin-right: 5px" class="fa">&#xf12a;</span>`
+        case 'default': return html`<span style="margin-right: 5px" class="fa">&#xf058;</span>`;
+        case 'error': return html`<span style="margin-right: 5px" class="fa">&#xf127;</span>`;
+        case 'success': return html`<span style="margin-right: 5px" class="fa">&#xf046;</span>`;
+        case 'warning': return html`<span style="margin-right: 5px" class="fa">&#xf12a;</span>`;
     }
 }
 

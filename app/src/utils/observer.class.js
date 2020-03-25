@@ -1,14 +1,8 @@
 
 /**
- * @name Event-Emitter
- * @description Event emitter created using the observable callback patter
+ * @description import from general utils in root
  */
-class Observer {
-    internalStore;
-    constructor () { this.internalStore = []; }
-    wait = ( ev ) => this.internalStore.push( ev );
-    emit = ( data ) => this.internalStore.forEach( ev => ev( data ) )
-    destroy = () => delete this;
-}
 
-export default EventEmitter;
+import Observer from '../../utils/observer-class';
+
+export default Observer;

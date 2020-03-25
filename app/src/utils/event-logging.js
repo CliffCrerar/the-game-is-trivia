@@ -3,7 +3,7 @@
  * @description TODO
  */
 
-import { $ } from '../_declarations';
+import { $ } from './web-tools';
 
 const excludeEvents = [ 'pointerdown', 'mousedown', 'pointerup', 'mouseup' ];
 
@@ -28,9 +28,9 @@ function eventLogging () {
             $.addEventListener( key.slice( 2 ), ( ev ) => {
                 ![ ...excludeStandardMouseEvents, ...excludeEvents ].includes( ev.type )
                     && console.log( 'EVENT: ', ev.type );
-            } )
+            } );
         }
     }
 }
 
-export default eventLogging
+export default eventLogging;

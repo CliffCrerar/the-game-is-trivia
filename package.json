@@ -5,7 +5,7 @@
   "main": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node index.js --presets babel-preset-env",
+    "start": "babel-node index.js --presets @babel/preset-env",
     "dev": "nodemon index.js --exec babel-node --presets @babel/preset-env"
   },
   "nodemonConfig": {
@@ -30,6 +30,7 @@
     "guid": "0.0.12",
     "lit-html": "^1.2.1",
     "mongodb": "^3.5.5",
+    "mongoose": "^5.9.6",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "pouchdb": "^7.2.1",

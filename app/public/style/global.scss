@@ -88,9 +88,12 @@ nav {
   );
 }
 
-.nav-brand {
-  margin: 0px;
-  display: block;
+main {
+  .main-inner {
+    max-width: 500px;
+    margin: auto;
+    padding: 16px;
+  }
 }
 
 header {
@@ -151,6 +154,16 @@ button {
     border: 1px solid rgba(0, 0, 0, 0.5);
   }
 }
+
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.nav-brand {
+  margin: 0px;
+  display: block;
+}
+
 .btn-default {
   background: silver;
   border: 1px solid grey;
@@ -211,14 +224,6 @@ button {
   width: 100%;
 }
 
-main {
-  .main-inner {
-    max-width: 500px;
-    margin: auto;
-    padding: 16px;
-  }
-}
-
 .player-listing {
   padding: 10px;
   display: flex;
@@ -227,8 +232,5 @@ main {
 
 .player-avatar {
   margin-right: 15px;
-  height: 2em;
-  width: 2em;
-  background: black;
-  border-radius: 50%;
+  font-size: 2em;
 }
