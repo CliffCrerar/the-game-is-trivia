@@ -7,7 +7,7 @@ import { render, html } from 'lit-html';
 import { eventLogging } from './utils';
 
 const appFrame = html`
-        <nav></nav>
+        <nav class="box-shadow-2"></nav>
         <header></header>
         <main></main>
         <footer></footer>
