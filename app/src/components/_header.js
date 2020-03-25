@@ -3,5 +3,16 @@
  */
 import { html } from 'lit-html';
 
-const Header = () => html`<h2>Lobby</h2>`;
-export default Header();
+function Header ( app, initText ) {
+
+    this.app = app;
+
+    this.headerText = initText;
+
+    this.setText = ( newText ) => this.headerText = newText;
+
+    this.template = () => html`<h2>${ this.headerText }</h2>`;
+
+    return this.template();
+};
+export default Header;

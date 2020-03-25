@@ -1,0 +1,116 @@
+[3/25/2020, 2:09:09 AM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 2:09:11 AM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 3:12:40 AM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 3:16:06 AM] [[31mERROR[0m] [
+  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 3:42:28 AM] [[31mERROR[0m] [
+  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
+  OperationCanceledException {}
+]
+[3/25/2020, 3:47:31 AM] [[31mERROR[0m] [
+  [32m'Error [getCompletionsAtPosition]: (Error: Debug Failure. Expected 282 <= 274\n'[39m +
+    [32m'    at Object.assertLessThanOrEqual (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:2055:17)\n'[39m +
+    [32m'    at createFileDiagnostic (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:17232:22)\n'[39m +
+    [32m'    at createDiagnosticForNodeInSourceFile (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:13300:16)\n'[39m +
+    [32m'    at Object.createDiagnosticForNode (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:13290:16)\n'[39m +
+    [32m'    at error (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:34839:22)\n'[39m +
+    [32m'    at resolveNameHelper (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:35655:50)\n'[39m +
+    [32m'    at resolveName (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:35338:20)\n'[39m +
+    [32m'    at getResolvedSymbol (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:51073:21)\n'[39m +
+    [32m'    at checkIdentifier (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:52850:26)\n'[39m +
+    [32m'    at checkExpressionWorker (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:59923:28)\n'[39m +
+    [32m'    at checkExpression (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:59873:38)\n'[39m +
+    [32m'    at checkExpressionCached (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:59551:38)\n'[39m +
+    [32m'    at getTargetOfAliasLikeExpression (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:36306:13)\n'[39m +
+    [32m'    at getTargetOfExportAssignment (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:36291:28)\n'[39m +
+    [32m'    at getTargetOfAliasDeclaration (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:36336:28)\n'[39m +
+    [32m'    at Object.resolveAlias [as getAliasedSymbol] (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:36370:30)\n'[39m +
+    [32m'    at Object.skipAlias (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:16908:61)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:110568:37\n'[39m +
+    [32m'    at Object.filterMutate (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:384:17)\n'[39m +
+    [32m'    at filterGlobalCompletion (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:110562:20)\n'[39m +
+    [32m'    at getGlobalCompletions (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:110526:17)\n'[39m +
+    [32m'    at tryGetGlobalSymbols (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:110418:25)\n'[39m +
+    [32m'    at getCompletionData (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:110215:22)\n'[39m +
+    [32m'    at Object.getCompletionsAtPosition (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:109575:34)\n'[39m +
+    [32m'    at Proxy.getCompletionsAtPosition (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:135360:35)\n'[39m +
+    [32m'    at Proxy.<anonymous> (/Users/cliff/.vscode/extensions/bierner.lit-html-1.11.1/node_modules/typescript-template-language-service-decorator/lib/template-language-service-decorator.js:84:24)\n'[39m +
+    [32m'    at TsLitPlugin.getCompletionsAtPosition (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/ts-lit-plugin/ts-lit-plugin.js:56:105)\n'[39m +
+    [32m'    at /Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:110:30\n'[39m +
+    [32m'    at nextLanguageService.<computed> (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:57:71)\n'[39m +
+    [32m'    at Object.getCompletionsAtPosition (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/ts-lit-plugin/lib/decorate-language-service.js:145:26)\n'[39m +
+    [32m'    at IOSession.Session.getCompletions (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:145435:64)\n'[39m +
+    [32m'    at Session.handlers.ts.createMapFromTemplate._a.<computed> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:144383:61)\n'[39m +
+    [32m'    at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146003:88\n'[39m +
+    [32m'    at IOSession.Session.executeWithRequestId (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:145994:28)\n'[39m +
+    [32m'    at IOSession.Session.executeCommand (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146003:33)\n'[39m +
+    [32m'    at IOSession.Session.onMessage (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:146027:35)\n'[39m +
+    [32m'    at Interface.<anonymous> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/tsserver.js:147342:27)\n'[39m +
+    [32m'    at Interface.emit (events.js:203:13)\n'[39m +
+    [32m'    at Interface._onLine (readline.js:316:10)\n'[39m +
+    [32m'    at Interface._normalWrite (readline.js:461:12)\n'[39m +
+    [32m'    at Socket.ondata (readline.js:172:10)\n'[39m +
+    [32m'    at Socket.emit (events.js:203:13)\n'[39m +
+    [32m'    at addChunk (_stream_readable.js:295:12)\n'[39m +
+    [32m'    at readableAddChunk (_stream_readable.js:276:11)\n'[39m +
+    [32m'    at Socket.Readable.push (_stream_readable.js:210:10)\n'[39m +
+    [32m'    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)) Debug Failure. Expected 282 <= 274'[39m,
+  Error: Debug Failure. Expected 282 <= 274
+      at Object.assertLessThanOrEqual (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:2055:17)
+      at createFileDiagnostic (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:17232:22)
+      at createDiagnosticForNodeInSourceFile (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:13300:16)
+      at Object.createDiagnosticForNode (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:13290:16)
+      at error (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:34839:22)
+      at resolveNameHelper (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:35655:50)
+      at resolveName (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:35338:20)
+      at getResolvedSymbol (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:51073:21)
+      at checkIdentifier (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:52850:26)
+      at checkExpressionWorker (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:59923:28)
+      at checkExpression (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:59873:38)
+      at checkExpressionCached (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:59551:38)
+      at getTargetOfAliasLikeExpression (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:36306:13)
+      at getTargetOfExportAssignment (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:36291:28)
+      at getTargetOfAliasDeclaration (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:36336:28)
+      at Object.resolveAlias [as getAliasedSymbol] (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:36370:30)
+      at Object.skipAlias (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:16908:61)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:110568:37
+      at Object.filterMutate (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:384:17)
+      at filterGlobalCompletion (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:110562:20)
+      at getGlobalCompletions (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:110526:17)
+      at tryGetGlobalSymbols (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:110418:25)
+      at getCompletionData (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:110215:22)
+      at Object.getCompletionsAtPosition (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:109575:34)
+      at Proxy.getCompletionsAtPosition (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:135360:35)
+      at Proxy.<anonymous> (/Users/cliff/.vscode/extensions/bierner.lit-html-1.11.1/node_modules/[4mtypescript-template-language-service-decorator[24m/lib/template-language-service-decorator.js:84:24)
+      at TsLitPlugin.getCompletionsAtPosition (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/ts-lit-plugin/ts-lit-plugin.js:56:105)
+      at /Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:110:30
+      at nextLanguageService.<computed> (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:57:71)
+      at Object.getCompletionsAtPosition (/Users/cliff/.vscode/extensions/runem.lit-plugin-1.1.10/node_modules/[4mts-lit-plugin[24m/lib/decorate-language-service.js:145:26)
+      at IOSession.Session.getCompletions (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:145435:64)
+      at Session.handlers.ts.createMapFromTemplate._a.<computed> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:144383:61)
+      at /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146003:88
+      at IOSession.Session.executeWithRequestId (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:145994:28)
+      at IOSession.Session.executeCommand (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146003:33)
+      at IOSession.Session.onMessage (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:146027:35)
+      at Interface.<anonymous> (/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/[4mtypescript[24m/lib/tsserver.js:147342:27)
+  [90m    at Interface.emit (events.js:203:13)[39m
+  [90m    at Interface._onLine (readline.js:316:10)[39m
+  [90m    at Interface._normalWrite (readline.js:461:12)[39m
+  [90m    at Socket.ondata (readline.js:172:10)[39m
+  [90m    at Socket.emit (events.js:203:13)[39m
+  [90m    at addChunk (_stream_readable.js:295:12)[39m
+  [90m    at readableAddChunk (_stream_readable.js:276:11)[39m
+  [90m    at Socket.Readable.push (_stream_readable.js:210:10)[39m
+  [90m    at Pipe.onStreamRead (internal/stream_base_commons.js:166:17)[39m
+]

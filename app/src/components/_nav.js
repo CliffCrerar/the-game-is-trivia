@@ -3,9 +3,19 @@
  */
 import { html } from 'lit-html';
 
-const NavBar = () => html`
+function Navbar ( app, initText ) {
+    this.app = app;
+
+    this.navbarBrand = initText;
+
+    this.template = () => html`
         <h4 class="nav-brand text-center w-100">
-            Movie Trivia App
+            ${this.navbarBrand }
         </h4>
-`
-export default NavBar();
+    `;
+
+    this.setText = ( newText ) => this.navbarBrand = newText;
+
+    return this.template();
+}
+export default Navbar;
