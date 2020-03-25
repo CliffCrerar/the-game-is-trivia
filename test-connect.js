@@ -2,20 +2,25 @@
  * MongoDb test connect
  */
 
-const { } = process.env;
 
-connectionString;
+
 
 export default function testConnect () {
+    const { MONGOUSER, MONGOPASS, MONGOHOST, MONGODB } = process.env;
+    console.log( 'MONGODB: ', MONGODB );
+    console.log( 'MONGOHOST: ', MONGOHOST );
+    console.log( 'MONGOPASS: ', MONGOPASS );
+    console.log( 'MONGOUSER: ', MONGOUSER );
+
+    const connectionString = `mongodb+srv://${ MONGOUSER }:${ MONGOPASS }@${ MONGOHOST }/${ MONGODB }?retryWrites=true&w=majority`;
     const MongoClient = require( 'mongodb' ).MongoClient;
-    const uri = `mongodb+srv://<username>:<password>@google-mongo-2pvom.mongodb.net/test?retryWrites=true&w=majority`;
-    const client = new MongoClient( uri, { useNewUrlParser: true } );
-    client.connect( err => {
-        const collection = client.db( "devsens" ).collection( "users" );
-        console.log( 'collection: ', collection );
-        // perform actions on the collection object
+    const uri = connectionString;
+    MongoClient.connect( uri, { useNewUrlParser: true, useUnifiedTopology: true }, ( err, client ) => {
+        console.log( 'err: ', err );
+        console.log( 'client: ', client );
         client.close();
     } );
+    return;
 }
 
 

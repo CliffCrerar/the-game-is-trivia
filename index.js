@@ -2,12 +2,12 @@
  * Application entry point
  */
 
-
+import testConnect from './test-connect';
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
 import app from './app';
-import api from './api'
+import api from './api';
 import fs from 'fs';
 import os from 'os';
 
@@ -62,7 +62,7 @@ function configureEnvironment () {
             const [ key, val ] = pair.split( '=' ); // use '=' as delimiter
             process.env[ key ] = val; // create environment variables
             return { [ key ]: val }; // return remap for pure function
-        } )
+        } );
 }
 /**
  * @description Use webpack to compile browser code
@@ -77,7 +77,7 @@ function configureBrowserCode () {
         outFileName = devMode ? 'bundle.[name].js' : 'bundle.[hash].[name].js',
         outFilePath = resolve( 'app/public/js' );
 
-    readDir( outFilePath ).forEach( file => remove( join( outFilePath, file ) ) ) // clean path
+    readDir( outFilePath ).forEach( file => remove( join( outFilePath, file ) ) ); // clean path
     // configure front end code on return also demonstrates closures
     return webpack( {
         mode: process.env.NODE_ENV,
@@ -97,9 +97,9 @@ function configureBrowserCode () {
         } catch ( err ) {
             console.error( err.message );
             console.error( err.stack );
-            process.exit( 5 ) // exit on node code 5 fatal error
+            process.exit( 5 ); // exit on node code 5 fatal error
         }
-    } )
+    } );
 
 }
 
@@ -110,7 +110,7 @@ function configureServer ( callback ) {
     const server = express();
     const port = normalizePort( process.env.PORT || defaultPort );
     server.use( '/', app );
-    server.use( '/api', api )
+    server.use( '/api', api );
     return callback( server, port );
 }
 
@@ -118,9 +118,9 @@ function configureServer ( callback ) {
  * @function serverFeedback provides feedback on server start action
  */
 function serverFeedback ( port ) {
-    console.log( '|------------------------------------|' )
-    console.log( ` server running:${ host() }:${ port }  ` )
-    console.log( '|------------------------------------|' )
+    console.log( '|------------------------------------|' );
+    console.log( ` server running:${ host() }:${ port }  ` );
+    console.log( '|------------------------------------|' );
 }
 
 /**
@@ -130,6 +130,10 @@ function serverFeedback ( port ) {
 ( async function () {
     configureNodePath();
     configureEnvironment();
+    testConnect();
+    // console.log( process.env );
     await configureBrowserCode();
+
     return await configureServer( ( server, port ) => ( { server, port } ) );
-}() ).then( ( { server, port } ) => server.listen( port, serverFeedback( port ) ) )
+}() ).then( ( { server, port } ) => server.listen( port, serverFeedback( port ) ) );
+
