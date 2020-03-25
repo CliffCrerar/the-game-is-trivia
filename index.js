@@ -9,7 +9,7 @@ import __ from './src/utils/decode';
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
-import api from './api';
+import api from './src/api';
 import fs from 'fs';
 import os from 'os';
 
@@ -30,7 +30,7 @@ let defaultPort = 3000;
  * @function configureNodePath sets up the node path for the application
  */
 function configureNodePath () {
-    return process.env.NODE_PATH = [ './', './utils' ]
+    return process.env.NODE_PATH = [ './', './src', './src/utils' ]
         .join( platform() === 'win32' ? ';' : ':' );
 }
 
@@ -63,10 +63,10 @@ function configureBrowserCode () {
     const
         devMode = process.env.NODE_ENV === 'development',
         appEntry = {
-            main: [ resolve( 'app/src/index.js' ) ]
+            main: [ resolve( 'src/app/index.js' ) ]
         },
         outFileName = devMode ? 'bundle.[name].js' : 'bundle.[hash].[name].js',
-        outFilePath = resolve( 'app/public/js' );
+        outFilePath = resolve( 'public/js' );
 
     readDir( outFilePath ).forEach( file => remove( join( outFilePath, file ) ) ); // clean path
     // configure front end code on return also demonstrates closures
@@ -113,8 +113,7 @@ function configureAndTestDbConnection () {
 function configureServer ( callback ) {
     const server = express();
     const port = normalizePort( process.env.PORT || defaultPort );
-
-    server.use( '/', api );
+    server.use( api );
     return callback( server, port );
 }
 

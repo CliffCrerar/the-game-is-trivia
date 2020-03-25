@@ -3,7 +3,7 @@
  */
 
 import { html } from 'lit-html';
-import { byName, byId } from '../utils/web-tools';
+import { byName, byId } from '../tools';
 import Lobby from '../services/pouchdb.service.mjs';
 import guid from 'guid';
 import appAlerts from '../services/alerts.service.mjs';
@@ -20,30 +20,28 @@ function EnterUserName ( app ) {
 
         const
             userName = ev.target.elements.username.value;
-
-        fetch( '/api/check-user/' + userName )
-            .then( response => console.log( 'response: ', response ) );
-
-
-
+        console.log( 'userName: ', userName );
 
         // _id = guid.create().value;
 
-        // if ( userName === '' ) {
-        //     appAlerts( 'Enter a username', 'error' );
-        //     byName( 'username' )[ 0 ].focus();
-        // } else {
-        //     Lobby.put( { _id, userName }, function ( error, response ) {
-        //         if ( error ) {
-        //             appAlerts( `${ error.status }: ${ error.name }`, 'error' );
-        //             appAlerts( `${ error.message }`, 'error' );
-        //         } else {
-        //             appAlerts( `User created: OK`, 'success' );
-        //             localStorage.setItem( 'user_id', response.id );
-        //             app.mainComponent = new OpponentList( app );
-        //             app.renderMain();
-        //         }
-        //     } );
+        if ( userName === '' ) {
+            appAlerts( 'Enter a username', 'error' );
+            byName( 'username' )[ 0 ].focus();
+        } else {
+            fetch( '/api/check-user/' + userName )
+                .then( response => console.log( 'response: ', response ) );
+            //     Lobby.put( { _id, userName }, function ( error, response ) {
+            //         if ( error ) {
+            //             appAlerts( `${ error.status }: ${ error.name }`, 'error' );
+            //             appAlerts( `${ error.message }`, 'error' );
+            //         } else {
+            //             appAlerts( `User created: OK`, 'success' );
+            //             localStorage.setItem( 'user_id', response.id );
+            //             app.mainComponent = new OpponentList( app );
+            //             app.renderMain();
+            //         }
+            //     } );
+        }
     };
 
     return html`

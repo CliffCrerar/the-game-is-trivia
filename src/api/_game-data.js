@@ -4,26 +4,26 @@
  */
 
 import { MongoClient } from 'mongodb';
-import Observer from '../utils/observer-class';
-import configureEnvironment from '../utils/env-config';
-import __ from '../utils/decode';
-import mongoose, { Schema, model } from 'mongoose';
+import { Observer, configureEnvironment, __ } from '../utils';
+import mongoose from 'mongoose';
 
 configureEnvironment();
 
 const
     { MONGOUSER, MONGOPASS, MONGOHOST, MONGODB } = process.env,
     connectionString = `mongodb+srv://${ __( MONGOUSER ) }:${ __( MONGOPASS ) }@${ __( MONGOHOST ) }/${ __( MONGODB ) }?retryWrites=true&w=majority`;
+console.log( 'connectionString: ', connectionString );
 
-mongoose.connect( connectionString, { useNewUrlParser: true, useUnifiedTopology: true } );
+const db = mongoose.connect( connectionString, { useNewUrlParser: true, useUnifiedTopology: true } );
 
-const userSchema = new Schema( { user_id: String, userName: String } );
 
-const users = new model( 'user', userSchema );
 
-const Users = users.find().exec();
 
-export { Users };
+const User = new mongoose.model( 'user', { name: String } );
+console.log( 'User: ', User );
+
+export { User };
+
 
 
 

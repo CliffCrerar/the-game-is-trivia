@@ -1,8 +1,5 @@
 {
     "name": "App",
-    "$schema": "http://json-schema.org/schema",
-    "start_url": "/seo",
-    "scope": "/seo",
     "icons": [
         {
             "src": "\/android-icon-36x36.png",

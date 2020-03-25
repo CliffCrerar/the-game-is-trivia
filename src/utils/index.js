@@ -2,6 +2,8 @@
  * Utils index
  */
 
-import eventLogging from './event-logging';
+import __ from './decode';
+import configureEnvironment from './env-config';
+import Observer from './observer-class';
 
-export { eventLogging };
+export { Observer, __, configureEnvironment };
