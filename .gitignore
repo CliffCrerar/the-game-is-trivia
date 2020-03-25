@@ -4,3 +4,4 @@ node_modules
 .DS_store
 bundle.*.main.js
 bundle.main.js
+lit-plugin.log
