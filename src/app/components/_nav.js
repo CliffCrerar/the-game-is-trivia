@@ -4,6 +4,7 @@
 import { html } from 'lit-html';
 
 function Navbar ( app, initText ) {
+
     this.app = app;
 
     this.navbarBrand = initText;
@@ -17,5 +18,6 @@ function Navbar ( app, initText ) {
     this.setText = ( newText ) => this.navbarBrand = newText;
 
     return this.template();
+
 }
 export default Navbar;

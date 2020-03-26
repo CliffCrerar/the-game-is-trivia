@@ -58,10 +58,6 @@ nav {
   // );
 }
 
-.nav-brand {
-  margin: 0px;
-}
-
 header {
   h2 {
     text-align: center;
@@ -163,6 +159,30 @@ hr {
   border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+.display-one {
+  font-size: 7em !important;
+}
+
+.display-two {
+  font-size: 6em !important;
+}
+
+.display-three {
+  font-size: 5em !important;
+}
+
+.display-four {
+  font-size: 4em !important;
+}
+
+.display-five {
+  font-size: 3em !important;
+}
+
+.display-six {
+  font-size: 2em !important;
+}
+
 .bg-white {
   background: white !important;
 }
@@ -184,6 +204,7 @@ hr {
     color: white;
   }
 }
+
 .btn-primary {
   background: rgb(30, 144, 255);
   background: linear-gradient(
@@ -217,19 +238,19 @@ hr {
 }
 
 .text-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .text-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 .text-justify {
-  text-align: justify;
+  text-align: justify !important;
 }
 
 .w-100 {

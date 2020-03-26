@@ -1,8 +1,0 @@
-[3/26/2020, 7:36:43 PM] [[31mERROR[0m] [
-  [32m'Error [getCompletionEntryDetails]: (undefined) undefined'[39m,
-  OperationCanceledException {}
-]
-[3/26/2020, 7:44:55 PM] [[31mERROR[0m] [
-  [32m'Error [getQuickInfoAtPosition]: (undefined) undefined'[39m,
-  OperationCanceledException {}
-]

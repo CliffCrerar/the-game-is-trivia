@@ -11,12 +11,12 @@ import LobbyService from '../services/lobby.service.mjs';
 import { html, render } from 'lit-html';
 import { byTag } from '../tools';
 
-const NavBarTitle = 'Movie Trivia';
-const InitialHeader = 'Lobby';
-const FooterTitle = 'FooterText';
-
-const App = new AppController();
-const Lobby = new LobbyService( App );
+const
+    App = new AppController(),
+    Lobby = new LobbyService( App ),
+    NavBarTitle = 'Movie Trivia',
+    InitialHeader = 'Lobby',
+    FooterTitle = 'FooterText';
 
 function AppController () {
 

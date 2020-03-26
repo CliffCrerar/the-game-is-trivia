@@ -1,8 +1,8 @@
 node_modules
-.env
+/.env
 .DS_Store
 .DS_store
 bundle.*.main.js
 bundle.main.js
-./lit-plugin.log
-./log.txt
+/lit-plugin.log
+/log.txt

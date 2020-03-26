@@ -14,6 +14,7 @@ function Footer ( app, initText ) {
     this.setText = ( newText ) => this.footerText = newText;
 
     return this.template();
+
 }
 
 export default Footer;

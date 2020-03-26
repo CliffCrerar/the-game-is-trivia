@@ -6,8 +6,9 @@ import { html } from 'lit-html';
 function PlayerList ( app ) {
 
     function populatePlayers () {
-        this.app.lobbyService.playersInLobby( function ( playerList ) {
-            console.log( playerList );
+        return this.app.lobbyService.playersInLobby( async function ( playerList ) {
+            console.log( playerList.rows );
+            return { players: playerList.rows };
         } );
     }
 
@@ -17,7 +18,8 @@ function PlayerList ( app ) {
 
         console.log( this );
 
-        populatePlayers.call( this );
+        const players = populatePlayers.call( this );
+        console.log( 'players: ', players );
 
         return html`
         <div class="main-inner box-shadow-2 bg-white">
