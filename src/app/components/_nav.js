@@ -1,5 +1,5 @@
 /**
- * Navbar
+ * @component Navbar
  */
 import { html } from 'lit-html';
 

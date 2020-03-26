@@ -16,6 +16,9 @@ body {
   min-height: 100vh;
   height: auto; }
 
+body {
+  background: url("app-back-ground") center center/auto 105vh no-repeat; }
+
 h1,
 h2,
 h3,
@@ -106,6 +109,12 @@ button {
 
 hr {
   border-top: 1px solid rgba(0, 0, 0, 0.3); }
+
+.bg-white {
+  background: white !important; }
+
+.text-white {
+  color: white !important; }
 
 .nav-brand {
   margin: 0px;

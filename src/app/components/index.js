@@ -1,5 +1,5 @@
 /**
- * Browser layout
+ * @component Application controller
  */
 
 import Navbar from './_nav';
@@ -100,8 +100,6 @@ function loadComponents () {
 
     console.log( 'App.userNameComponent: ', App.userNameComponent );
 
-
-
     /**
      * @description TODO:
      */
@@ -115,6 +113,9 @@ function loadComponents () {
     checkUser
         ? App.renderPlayerList()
         : App.renderUserName();
+
+
+
 }
 
 

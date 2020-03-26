@@ -29,13 +29,15 @@ const
     api = express.Router(),
     indexMime = 'text/html',
     sMime = 'text/javascript',
+    rImageMime = 'image/jpg',
     staticFiles = resolve( 'public' ),
     indexFile = join( staticFiles, 'index.html' ),
     globalStyleSheet = join( staticFiles, 'style/global.css' ),
     seoFiles = join( staticFiles, 'seo' ),
     scrFiles = join( staticFiles, 'js' ),
     icons = join( staticFiles, 'style/fa/icons.css' ),
-    faFontFiles = join( staticFiles, 'style/fa' );
+    faFontFiles = join( staticFiles, 'style/fa' ),
+    bgImagePath = join( staticFiles, 'img/app-bg' );
 /**
  * @function static shorthand function for the express static function
  * @description TODO:
@@ -116,6 +118,16 @@ api.get( '/bundle', ( req, res ) => streamResource( scriptBundle( scrFiles ), sM
  */
 api.use( '/game-engine', pouchExpressApp );
 /**
+ * @description Random App Background
+ */
+api.get( '/app-back-ground', ( req, res ) => {
+    const
+        rNum = Math.round( ( Math.random() * 4 ) ),
+        appBgFileArr = readDir( bgImagePath ),
+        randomImagePath = join( bgImagePath, appBgFileArr[ rNum ] );
+    streamResource( randomImagePath, rImageMime, res );
+} );
+/**
  * @description Get or create user and return user document
  */
 api.get( '/api/check-user/:username', ( req, res ) => {
@@ -135,6 +147,7 @@ api.get( '/api/check-user/:username', ( req, res ) => {
             console.log( ' | -> User NOT FOUND' );
 
             new User( { "name": req.params.username } ) // create new user 
+
                 .save( ( err, newUser ) => { // save user to db
 
                     if ( err ) {

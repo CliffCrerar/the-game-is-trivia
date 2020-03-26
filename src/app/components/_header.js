@@ -1,5 +1,5 @@
 /**
- * Header
+ * @component Header
  */
 import { html } from 'lit-html';
 

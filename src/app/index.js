@@ -4,7 +4,6 @@
 import App from './components';
 import { $, create, byId, byName, byTag } from './tools';
 import { render, html } from 'lit-html';
-// import { eventLogging } from '../utils';
 
 const appFrame = html`
         <nav class="box-shadow-2"></nav>
@@ -20,5 +19,7 @@ const appFrame = html`
     App.initialize();
 } );;
 
+
+// $.body.style.background = `url(${ require( '../../public/img' ) })`;
 
 // ( ( app ) => render( app, byId( 'app-root' ) ) )( App );

@@ -1,7 +1,6 @@
 /**
- * Username overlay
+ * @component Username-overlay
  */
-
 import { html } from 'lit-html';
 import { byName, byId } from '../tools';
 import Lobby from '../services/lobby.service.mjs';
@@ -16,38 +15,41 @@ import OpponentList from './_players';
  */
 function EnterUserName ( app ) {
 
-    console.log( 'init' );
-
-    this.app = app;
-
-    this.handleSubmission = ( ev ) => {
+    function handleSubmission ( ev ) {
 
         ev.preventDefault();
 
         const userName = ev.target.elements.username.value;
 
         if ( userName === '' ) {
+
             appAlerts( 'Enter a username', 'error' );
             byName( 'username' )[ 0 ].focus();
+
         } else {
+
             fetch( '/api/check-user/' + userName )
+
                 .then( response => {
-                    console.log( 'response: ', response );
+
                     response.json()
+
                         .then( body => {
                             console.log( 'body: ', body );
                             app.lobbyService.enterLobby( body );
                             this.app.renderPlayerList();
                         } );
                 } )
+
                 .catch( error =>
                     console.error( 'ERROR RETRIEVING USERS\n', error.message, '\n', error.stack )
                 );
         }
     };
 
+    this.app = app;
+
     this.template = () => {
-        // byId( 'get-username-overlay' ).onload = () => byName( 'username' )[ 0 ].focus();
         return html`
         <div id="get-username-overlay">
             <style>
@@ -76,15 +78,14 @@ function EnterUserName ( app ) {
             </style>
             <div class="username-overlay">
                 <div class="username-form text-center">
-                    <form autocomplete="off" @submit=${ this.handleSubmission } action="/check-user"  class="box-shadow-1">
+                    <form autocomplete="off" @submit=${ handleSubmission } action="/check-user"  class="box-shadow-1">
                         <label>Enter your username</label>
                         <input name="username" placeholder="username" type="text">
                         <button class="btn-primary">Enter</button>
                     </form>
                 </div>
             </div>
-        </div>
-    `;
+        </div>`;
     };
     return this.template();
 }

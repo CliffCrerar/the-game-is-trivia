@@ -1,5 +1,5 @@
 /**
- * Footer component
+ * @component Footer-component
  */
 
 import { html } from 'lit-html';

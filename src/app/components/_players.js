@@ -1,9 +1,15 @@
 /**
- * Main component
+ * @name Main component
  */
 import { html } from 'lit-html';
 
 function PlayerList ( app ) {
+
+    function populatePlayers () {
+        this.app.lobbyService.playersInLobby( function ( playerList ) {
+            console.log( playerList );
+        } );
+    }
 
     this.app = app;
 
@@ -11,15 +17,10 @@ function PlayerList ( app ) {
 
         console.log( this );
 
-        function populatePlayers () {
-            this.app.lobbyService.playersInLobby( function ( playerList ) {
-                console.log( playerList );
-            } );
-        }
         populatePlayers.call( this );
 
         return html`
-        <div class="main-inner box-shadow-2">
+        <div class="main-inner box-shadow-2 bg-white">
             <h3>Players Online</h3>
             <hr>
             <div class="player-listing">
