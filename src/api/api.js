@@ -8,7 +8,9 @@ import fs from 'fs';
 import path from 'path';
 import sass from 'node-sass';
 import { User } from './_game-data';
-
+/**
+ * @description TODO:
+ */
 const [
     {
         createReadStream: readStream,
@@ -20,7 +22,9 @@ const [
         join,
         resolve
     } ] = [ fs, path ];
-
+/**
+ * @description TODO:
+ */
 const
     api = express.Router(),
     indexMime = 'text/html',
@@ -32,8 +36,6 @@ const
     scrFiles = join( staticFiles, 'js' ),
     icons = join( staticFiles, 'style/fa/icons.css' ),
     faFontFiles = join( staticFiles, 'style/fa' );
-console.log( 'staticFiles: ', staticFiles );
-console.log( 'globalStyleSheet: ', globalStyleSheet );
 /**
  * @function static shorthand function for the express static function
  * @description TODO:
@@ -41,7 +43,6 @@ console.log( 'globalStyleSheet: ', globalStyleSheet );
 function serveStatic ( staticContentPath ) {
     return express.static( staticContentPath );
 };
-
 /**
  * @function streamResource
  * @description Stream resources requested by front end
@@ -80,63 +81,79 @@ sassFile( globalStyleSheet.replace( 'css', 'scss' ) );
  */
 api.all( '*', ( { path, query, body }, { statusCode }, next ) => {
     console.log( statusCode, ' PATH: ', path, query && `QUERY: ${ JSON.stringify( query ) }` );
-    console.log( statusCode, ' PATH: ', path );
     next();
 } );
 /**
  * @description Front ent static routes
  */
 api.use( '/', serveStatic( staticFiles ) );
-
+/**
+ * @description TODO:
+ */
 api.use( '/', serveStatic( seoFiles ) );
-
+/**
+ * @description TODO:
+ */
 api.use( '/fa', serveStatic( faFontFiles ) );
-
+/**
+ * @description TODO:
+ */
 api.use( '/icons', serveStatic( icons ) );
-
+/**
+ * @description TODO:
+ */
 api.use( '/global-stylesheet', serveStatic( globalStyleSheet ) );
-
+/**
+ * @description TODO:
+ */
 api.get( '/', ( req, res ) => streamResource( indexFile, indexMime, res ) );
-
+/**
+ * @description TODO:
+ */
 api.get( '/bundle', ( req, res ) => streamResource( scriptBundle( scrFiles ), sMime, res ) );
-
-
-
 /**
  * @description Api end points
  */
-
-api.use( '/db', pouchExpressApp );
-
+api.use( '/game-engine', pouchExpressApp );
+/**
+ * @description Get or create user and return user document
+ */
 api.get( '/api/check-user/:username', ( req, res ) => {
-    console.log( 'req: ', req.query );
-    console.log( 'req: ', req.params );
-    User.find( { name: { $eq: req.params.username } }, ( err, docs ) => {
-        console.log( 'docs: ', docs );
+
+    console.log( ' | -> Get or create user and return user document' );
+    console.log( ' | -> REQUESTED USER: ', req.params );
+
+    User.find( { name: { $eq: req.params.username } }, ( err, docs ) => { // find user
+
         if ( err ) {
-            console.log( 'err: ', err );
+
+            console.log( '| -> ERROR FINDING USER: ', err );
             res.status( 500 ).send( err );
-        } else if ( docs.length === 0 ) {
-            console.log( 'Document Not Found' );
-            const newUser = new User( { "name": req.params.name } );
-            console.log( 'newUser: ', newUser );
-            newUser.save( ( err, newUser ) => {
-                if ( err ) {
-                    console.log( 'err: ', err );
-                    res.status( 501 ).send( err );
-                } else {
-                    console.log( 'newUser: ', newUser );
-                    res.status( 201 ).send( newUser );
-                }
-            } );
+
+        } else if ( docs.length === 0 ) { // if user does not exist
+
+            console.log( ' | -> User NOT FOUND' );
+
+            new User( { "name": req.params.username } ) // create new user 
+                .save( ( err, newUser ) => { // save user to db
+
+                    if ( err ) {
+
+                        console.log( ' | -> ERROR CREATING USER: ', err );
+                        res.status( 501 ).send( err ); // return 501
+
+                    } else {
+                        console.log( ' | -> Return created user' );
+                        res.status( 201 ).send( newUser ); // return created user
+
+                    }
+                } );
         } else {
-            console.log( 'docs: ', docs );
-            res.status( 200 ).send( docs );;
+            console.log( ' | -> Return existing user' );
+            res.status( 200 ).send( docs[ 0 ] ); // return existing user
+
         }
     } );
-
-
-    // res.status( 200 ).send( 'blah bitch' );
 } );
 
 

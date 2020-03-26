@@ -4,47 +4,51 @@
 
 import { html } from 'lit-html';
 import { byName, byId } from '../tools';
-import Lobby from '../services/pouchdb.service.mjs';
+import Lobby from '../services/lobby.service.mjs';
 import guid from 'guid';
 import appAlerts from '../services/alerts.service.mjs';
-import OpponentList from './_opponents';
+import OpponentList from './_players';
 
-
+/**
+ * @name EnterUserName
+ * @description TODO:
+ * @param {*} app 
+ */
 function EnterUserName ( app ) {
 
-    window.onload = () => byName( 'username' )[ 0 ].focus();
+    console.log( 'init' );
 
-    const handleSubmission = ( ev ) => {
+    this.app = app;
+
+    this.handleSubmission = ( ev ) => {
 
         ev.preventDefault();
 
-        const
-            userName = ev.target.elements.username.value;
-        console.log( 'userName: ', userName );
-
-        // _id = guid.create().value;
+        const userName = ev.target.elements.username.value;
 
         if ( userName === '' ) {
             appAlerts( 'Enter a username', 'error' );
             byName( 'username' )[ 0 ].focus();
         } else {
             fetch( '/api/check-user/' + userName )
-                .then( response => console.log( 'response: ', response ) );
-            //     Lobby.put( { _id, userName }, function ( error, response ) {
-            //         if ( error ) {
-            //             appAlerts( `${ error.status }: ${ error.name }`, 'error' );
-            //             appAlerts( `${ error.message }`, 'error' );
-            //         } else {
-            //             appAlerts( `User created: OK`, 'success' );
-            //             localStorage.setItem( 'user_id', response.id );
-            //             app.mainComponent = new OpponentList( app );
-            //             app.renderMain();
-            //         }
-            //     } );
+                .then( response => {
+                    console.log( 'response: ', response );
+                    response.json()
+                        .then( body => {
+                            console.log( 'body: ', body );
+                            app.lobbyService.enterLobby( body );
+                            this.app.renderPlayerList();
+                        } );
+                } )
+                .catch( error =>
+                    console.error( 'ERROR RETRIEVING USERS\n', error.message, '\n', error.stack )
+                );
         }
     };
 
-    return html`
+    this.template = () => {
+        // byId( 'get-username-overlay' ).onload = () => byName( 'username' )[ 0 ].focus();
+        return html`
         <div id="get-username-overlay">
             <style>
                 .username-overlay{
@@ -72,7 +76,7 @@ function EnterUserName ( app ) {
             </style>
             <div class="username-overlay">
                 <div class="username-form text-center">
-                    <form autocomplete="off" @submit=${ handleSubmission } action="/check-user"  class="box-shadow-1">
+                    <form autocomplete="off" @submit=${ this.handleSubmission } action="/check-user"  class="box-shadow-1">
                         <label>Enter your username</label>
                         <input name="username" placeholder="username" type="text">
                         <button class="btn-primary">Enter</button>
@@ -81,7 +85,8 @@ function EnterUserName ( app ) {
             </div>
         </div>
     `;
-
+    };
+    return this.template();
 }
 
 export default EnterUserName;

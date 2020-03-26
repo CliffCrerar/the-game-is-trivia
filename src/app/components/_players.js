@@ -3,11 +3,22 @@
  */
 import { html } from 'lit-html';
 
-function OpponentList ( app ) {
+function PlayerList ( app ) {
 
     this.app = app;
 
-    this.template = () => html`
+    this.template = () => {
+
+        console.log( this );
+
+        function populatePlayers () {
+            this.app.lobbyService.playersInLobby( function ( playerList ) {
+                console.log( playerList );
+            } );
+        }
+        populatePlayers.call( this );
+
+        return html`
         <div class="main-inner box-shadow-2">
             <h3>Players Online</h3>
             <hr>
@@ -26,7 +37,8 @@ function OpponentList ( app ) {
                 <div class="player-name">Player</div>
             </div>
         </div>`;
+    };
 
     return this.template();
 }
-export default OpponentList;
+export default PlayerList;

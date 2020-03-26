@@ -4,9 +4,10 @@
 
 import Navbar from './_nav';
 import Header from './_header';
-import OpponentList from './_opponents';
+import PlayerList from './_players';
 import EnterUserName from './_user-name';
 import Footer from './_footer';
+import LobbyService from '../services/lobby.service.mjs';
 import { html, render } from 'lit-html';
 import { byTag } from '../tools';
 
@@ -15,8 +16,13 @@ const InitialHeader = 'Lobby';
 const FooterTitle = 'FooterText';
 
 const App = new AppController();
+const Lobby = new LobbyService( App );
 
 function AppController () {
+
+    /**
+     * @description TODO:
+     */
 
     this.navBarContainer; // container from the app frame
     this.navBarComponent; // component to render in container
@@ -25,24 +31,31 @@ function AppController () {
     this.headerComponent; // component to render in container
 
     this.mainContainer; // container from the app frame
-    this.mainComponent; // component to render in container
+    this.playerListComponent; // component to render in container
+    this.userNameComponent; // component to render in container
 
     this.footerContainer; // container from the app frame
     this.footerComponent; // component to render in container
 
-    /** RENDER METHODS */
+    /**
+     * @description TODO:
+     */
+
+    this.lobbyService;
+
+    /**
+     * @description TODO:
+     */
     this.renderNavbar = () => render( this.navBarComponent, this.navBarContainer );
     this.renderHeader = () => render( this.headerComponent, this.headerContainer );
-    this.renderMain = () => render( this.mainComponent, this.mainContainer );
+    this.renderPlayerList = () => render( this.playerListComponent, this.mainContainer );
+    this.renderUserName = () => render( this.userNameComponent, this.mainContainer );
     this.renderFooter = () => render( this.footerComponent, this.footerContainer );
 
-    this.renderAll = function () {
-        this.renderNavbar();
-        this.renderHeader();
-        this.renderMain();
-        this.renderFooter();
-    };
-
+    /**
+     * @function initialize
+     * @description TODO:
+     */
     this.initialize = function () {
 
         this.navBarContainer = byTag( 'nav' )[ 0 ];
@@ -52,19 +65,58 @@ function AppController () {
 
         loadComponents();
     };
+
+    /**
+     * @function attachService
+     * @description TODO:
+     */
+    this.attachService = function ( serviceName, service ) {
+        this[ serviceName ] = service;
+    };
 }
 
+/**
+ * @function loadComponents
+ * @description TODO
+ */
 function loadComponents () {
 
-    const checkUser = localStorage.getItem( 'user_id' ) ?? null; // check if user id is present in local storage
+    const checkUser = localStorage.getItem( 'user_id' ) ?? null; // check if user id is present in 
+    console.log( 'checkUser: ', checkUser );
 
-    // set components
+    /**
+     * @description TODO:
+     */
+    App.attachService( 'lobbyService', Lobby );
+
+    /**
+     * @description TODO:
+     */
     App.navBarComponent = new Navbar( App, NavBarTitle );
     App.headerComponent = new Header( App, InitialHeader );
     App.footerComponent = new Footer( App, FooterTitle );
-    App.mainComponent = checkUser ? new OpponentList( App ) : EnterUserName( App );
+    App.playerListComponent = new PlayerList( App );
+    App.userNameComponent = new EnterUserName( App );
 
-    App.renderAll();
+    console.log( 'App.userNameComponent: ', App.userNameComponent );
+
+
+
+    /**
+     * @description TODO:
+     */
+    App.renderNavbar();
+    App.renderHeader();
+    App.renderFooter();
+
+    /**
+     * @description TODO:
+     */
+    checkUser
+        ? App.renderPlayerList()
+        : App.renderUserName();
 }
+
+
 
 export default App;

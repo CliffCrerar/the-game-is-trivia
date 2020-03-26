@@ -7,3 +7,5 @@ Demo 2 player movie trivia application
 # Required
 
 1. Nodejs
+
+NOTE TO SELF: Last point entering this player in lobby display lobby list in landing
