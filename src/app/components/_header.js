@@ -11,7 +11,7 @@ function Header ( app, initText ) {
 
     this.setText = ( newText ) => this.headerText = newText;
 
-    this.template = () => html`<h2 class="text-white display-five">${ this.headerText }</h2>`;
+    this.template = () => html`<h1 class="text-white text-center">${ this.headerText }</h1>`;
 
     return this.template();
 

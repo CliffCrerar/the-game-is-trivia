@@ -10,7 +10,7 @@ function Navbar ( app, initText ) {
     this.navbarBrand = initText;
 
     this.template = () => html`
-        <h4 class="nav-brand text-center w-100">
+        <h4 class="nav-brand text-center w-100 display-six">
             ${this.navbarBrand }
         </h4>
     `;
