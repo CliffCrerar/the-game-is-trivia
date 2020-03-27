@@ -1,14 +1,17 @@
 /**
  * Application API
  */
-import { pouchExpressApp } from './_game-engine';
+import { pouchExpressApp, Lobby } from './_game-engine';
 import express, { json } from 'express';
 import HttpError from 'http-errors';
 import { User } from './_game-data';
 import { ObjectID } from 'mongodb';
 import sass from 'node-sass';
 import path from 'path';
+import LOG from '../utils/logger';
 import fs from 'fs';
+// import LobbyService from '../app/services/lobby.service.mjs';
+
 /**
  * @description TODO:
  */
@@ -40,10 +43,6 @@ const
     faFontFiles = join( staticFiles, 'style/fa' ),
     bgImagePath = join( staticFiles, 'img/app-bg' ),
     sourceMap = join( scrFiles, 'bundle.main.map' );
-
-/** */
-function LOG ( ...params ) { return console.log( ' | -> ', params.join( '' ) ); }
-
 
 /**
  * @function static shorthand function for the express static function
@@ -137,6 +136,31 @@ api.get( '/app-back-ground', ( req, res ) => {
         appBgFileArr = readDir( bgImagePath ),
         randomImagePath = join( bgImagePath, appBgFileArr[ rNum ] );
     streamResource( randomImagePath, rImageMime, res );
+} );
+/**
+ * @description Handle logoff event
+ */
+api.get( '/logging-off/:user_id', ( req, res, next ) => {
+    LOG( 'Remove user ', req.params.user_id );
+    const user_id = req.params.user_id;
+    Lobby.get( user_id, ( getError, getResult ) => {
+        console.log( 'getError: ', getError );
+        console.log( 'getResult: ', getResult );
+        if ( getError ) {
+            LOG( 'Could not retrieve user:', getError.message );
+            LOG( 'Stack Trace:', getError.stack );
+        } else {
+            LOG( 'Removing user:', getResult.name );
+            Lobby.remove( getResult, ( removeError, removeResult ) => {
+                if ( removeError ) {
+                    LOG( 'Could not remove user:', removeError.message );
+                } else {
+                    LOG( 'User has been removed', removeResult );
+                }
+            } );
+        }
+    } );
+    next();
 } );
 /**
  * @description Get or create user and return user document

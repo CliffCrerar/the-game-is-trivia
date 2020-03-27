@@ -41,6 +41,12 @@
         <![endif]-->
 
     <script src="bundle"></script>
+    <script>
+        window.onbeforeunload = function () {
+            const id = localStorage.getItem( 'user_id' )
+            // fetch( '/logging-off/' + id );
+        }
+    </script>
 </body>
 
 </html>

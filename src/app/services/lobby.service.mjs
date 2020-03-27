@@ -8,6 +8,7 @@ import Observer from '../../utils/observer-class';
 
 // Connect to remote lobby NOTE! no pouchdb is created locally
 const remoteLobby = new PouchDB( location.origin + '/game-engine/lobby' );
+const Lobby = new PouchDB( 'Lobby' );
 
 /**
  * @name exitLobby
@@ -15,13 +16,13 @@ const remoteLobby = new PouchDB( location.origin + '/game-engine/lobby' );
  */
 function exitLobby () {
 
-    const userIdToExit = localStorage.getItem( 'user_id' );
+    // const userIdToExit = localStorage.getItem( 'user_id' );
 
-    remoteLobby.delete( userIdToExit );
+    // Lobby.delete( userIdToExit );
 
-    window.onbeforeunload = function () {
-        return "Leaving?";
-    };
+    // window.onbeforeunload = function () {
+    //     return "Leaving?";
+    // };
 
 }
 
@@ -32,7 +33,7 @@ function exitLobby () {
  */
 function enterLobby ( user, remote ) {
 
-    const { get, put } = remote;
+    const { get, put } = Lobby;
 
     delete user[ '__v' ];
 
@@ -74,20 +75,20 @@ function LobbyService ( app ) {
 
     this.app = app;
 
-    this.remote = remoteLobby;
+    this.localLobby = Lobby;
 
-    this.playersInLobby = [];
+    this.enterLobby = ( user ) => enterLobby( user, this.localLobby );
 
-    this.enterLobby = ( user ) => enterLobby( user, this.remote );
+    // this.exit = exitLobby;
 
-    this.exit = exitLobby;
-
-    this.remote.changes( {
-
+    this.localLobby.sync( remoteLobby, {
+        since: 'now',
         live: true,
         include_docs: true
 
     } ).on( 'change', function ( change ) {
+
+        console.log( 'change: ', change );
 
         activity.emit( change.doc );
 

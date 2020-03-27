@@ -16,16 +16,7 @@ function PlayerList ( app ) {
     listElement.classList.add( 'player-listing' );
 
     function updatePlayerList ( player, type ) {
-
-        if ( type ?? 'entry' ) {
-
-            return addPlayer( player );
-
-        } else if ( type ?? exit ) {
-
-            return removePlayer();
-
-        }
+        console.log();
     }
 
     function addPlayer ( player ) {
@@ -46,7 +37,10 @@ function PlayerList ( app ) {
 
     function removePlayer ( id ) { return byId( id ).remove(); }
 
-    this.app.lobbyService.activity.wait( lobbyActivity => updatePlayerList( lobbyActivity, 'entry' ) );
+    this.app.lobbyService.activity.wait( lobbyActivity => {
+        // updatePlayerList( lobbyActivity, 'entry' );
+        console.log( 'lobbyActivity', lobbyActivity );
+    } );
 
     this.template = () => {
         // renderList();

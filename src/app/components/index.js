@@ -134,4 +134,11 @@ function fetchUserName ( callback ) {
             } ) );
 }
 
+// window.onbeforeunload = confirmExit;
+// function confirmExit () {
+//     // Lobby.exit();
+//     Lobby.activity.destroy();
+//     return 'message to display in dialog box';
+// }
+
 export default App;

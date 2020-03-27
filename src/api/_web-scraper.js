@@ -2,9 +2,6 @@
  * @name Web-scraper
  */
 
-<<<<<<< HEAD
-const html = require( 'html' );
-=======
 
 const http = require( 'https' );
 
@@ -28,4 +25,3 @@ const req = http.request( 'https://www.imdb.com/chart/top', ( res ) => {
     } );
 } );
 req.end();
->>>>>>> 64a081cd78a2a97dd8f38940467da1949a60fcae

@@ -26,7 +26,7 @@ db.then( async info => {
     // console.log( 'info', info );
 
     // console.log( 'User: ', User );
-    const findUser = await User.find( { name: { $eq: 'poesbal' } } );
+    // const findUser = await User.find( { name: { $eq: 'poesbal' } } );
     // console.log( 'findUser: ', findUser );
     // const newUser = new User( { name: 'poesbal' } );
     // console.log( 'newUser: ', newUser );
