@@ -4,20 +4,11 @@
 
 import PouchDB from 'pouchdb';
 import appAlerts from './alerts.service';
+import Observer from '../../utils/observer-class';
 
-/**
- * @name playerList
- * @description TODO:
- * @param lobby 
- * @param callback 
- */
-function playerList ( lobby, callback ) {
+// Connect to remote lobby NOTE! no pouchdb is created locally
+const remoteLobby = new PouchDB( location.origin + '/game-engine/lobby' );
 
-    return lobby.allDocs()
-        .then( docs => callback( docs ) )
-        .catch( error => callback( error ) );
-
-}
 /**
  * @name exitLobby
  * @description used to exit a user from the lobby before unload event
@@ -25,6 +16,12 @@ function playerList ( lobby, callback ) {
 function exitLobby () {
 
     const userIdToExit = localStorage.getItem( 'user_id' );
+
+    remoteLobby.delete( userIdToExit );
+
+    window.onbeforeunload = function () {
+        return "Leaving?";
+    };
 
 }
 
@@ -71,43 +68,35 @@ function enterLobby ( user, remote ) {
  */
 function LobbyService ( app ) {
 
+    const activity = new Observer();
+
+    this.activity = activity;
+
     this.app = app;
 
-    this.remote = new PouchDB( location.origin + '/game-engine/lobby' );
+    this.remote = remoteLobby;
 
-    this.playersInLobby = ( lobbyCallback ) => playerList( this.remote, lobbyCallback );
+    this.playersInLobby = [];
 
     this.enterLobby = ( user ) => enterLobby( user, this.remote );
 
+    this.exit = exitLobby;
+
     this.remote.changes( {
 
-        since: 'now',
         live: true,
         include_docs: true
 
     } ).on( 'change', function ( change ) {
 
-        console.log( 'change: ', change );
+        activity.emit( change.doc );
 
     } ).on( 'error', function ( err ) {
 
         console.log( 'err: ', err );
 
-    } );
+    } ).on( 'complete', ( completeInfo ) => console.log( 'completeInfo', completeInfo ) );
 
-    /**
-     * @description Dev Code this must be removed
-     * @name TODO:
-     */
-
-    this.enterLobby(
-        { _id: '41e8c9ad-fbb2-65ff-5c41-8c6e715347e2', name: 'FictitiousOne' } );
-    // this.enterLobby(
-    //     { _id: 'bea0e99a-5e25-3cda-1eed-deeed532d3d5', name: 'FictitiousTwo' } );
-    // this.enterLobby(
-    //     { _id: 'a7a6bdf5-1dd5-586a-bc75-a0438bf6d315', name: 'FictitiousThree' } );
-    // this.enterLobby(
-    //     { _id: 'b1e31008-c067-0611-3bce-99c5641cb302', name: 'FictitiousFour' } );
 }
 
 export default LobbyService;

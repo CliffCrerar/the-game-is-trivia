@@ -114,10 +114,24 @@ function loadComponents () {
         ? App.renderPlayerList()
         : App.renderUserName();
 
-
-
+    /**
+     * @description If user id exists in local storage enter user into lobby
+     */
+    checkUser && fetchUserName( user => Lobby.enterLobby( user ) );
 }
 
-
+/**
+ * @function fetchUserName
+ * @description TODO:
+ * @param {*} callback 
+ */
+function fetchUserName ( callback ) {
+    return fetch( '/api/user-by-id/' + localStorage.getItem( 'user_id' ) ).then( resp =>
+        resp.json()
+            .then( user => {
+                delete user[ '__v' ];
+                return callback( user );
+            } ) );
+}
 
 export default App;

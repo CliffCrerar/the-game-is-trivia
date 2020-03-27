@@ -17,45 +17,14 @@ html,
 body {
   margin: 0;
   padding: 0;
-  min-width: 100vh;
   min-height: 100vh;
+  min-width: 100vw;
   height: auto;
+  overflow-x: hidden;
 }
 
 body {
   background: url("app-back-ground") center center / auto 105vh no-repeat;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: Raleway;
-}
-
-nav {
-  height: 60px;
-  display: flex;
-  flex-flow: row-wrap;
-  align-items: center;
-  justify-content: space-between;
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgba(255, 255, 255, 1) 97%,
-    rgba(227, 227, 227, 1) 100%
-  );
-
-  // background: rgb(255, 255, 255);
-  // background: linear-gradient(
-  //   180deg,
-  //   rgba(255, 255, 255, 1) 0%,
-  //   rgba(255, 255, 255, 1) 81%,
-  //   rgba(213, 213, 213, 1) 100%
-  // );
 }
 
 header {
@@ -90,9 +59,11 @@ nav {
 
 main {
   .main-inner {
-    max-width: 500px;
+    width: 50vw;
     margin: auto;
     padding: 16px;
+    min-width: 280px;
+    max-width: 400px;
   }
 }
 
@@ -104,8 +75,9 @@ header {
 
 footer {
   position: absolute;
+  display: block;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   height: 60px;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -117,7 +89,6 @@ footer {
   box-shadow: 28px 0px 50px rgba(0, 0, 0, 0.16);
   h3 {
     text-align: center;
-    width: 100%;
   }
 }
 
@@ -266,4 +237,52 @@ hr {
 .player-avatar {
   margin-right: 15px;
   font-size: 2em;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-inline {
+  display: inline !important;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-row-wrap {
+  flex-flow: row wrap !important;
+}
+
+.justify-between {
+  justify-content: space-between !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.justify-around {
+  justify-content: space-around !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.flex-one {
+  flex: 1 !important;
 }

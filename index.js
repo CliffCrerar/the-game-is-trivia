@@ -81,7 +81,14 @@ function configureBrowserCode () {
             rules: [
                 { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
             ]
-        }
+        },
+        plugins: [
+            new webpack.SourceMapDevToolPlugin( {
+                filename: join( 'public/[file].map' ),
+                publicPath: '/sourcemap',
+                fileContext: 'public'
+            } )
+        ]
     } ).run( ( err ) => {
         try {
             if ( err ) throw new Error( err );

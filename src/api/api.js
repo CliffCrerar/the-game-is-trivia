@@ -1,13 +1,14 @@
 /**
  * Application API
  */
-
+import { pouchExpressApp } from './_game-engine';
 import express, { json } from 'express';
-import { pouchExpressApp, PouchDB, absorbUsers } from './_game-engine';
-import fs from 'fs';
-import path from 'path';
-import sass from 'node-sass';
+import HttpError from 'http-errors';
 import { User } from './_game-data';
+import { ObjectID } from 'mongodb';
+import sass from 'node-sass';
+import path from 'path';
+import fs from 'fs';
 /**
  * @description TODO:
  */
@@ -37,7 +38,13 @@ const
     scrFiles = join( staticFiles, 'js' ),
     icons = join( staticFiles, 'style/fa/icons.css' ),
     faFontFiles = join( staticFiles, 'style/fa' ),
-    bgImagePath = join( staticFiles, 'img/app-bg' );
+    bgImagePath = join( staticFiles, 'img/app-bg' ),
+    sourceMap = join( scrFiles, 'bundle.main.map' );
+
+/** */
+function LOG ( ...params ) { return console.log( ' | -> ', params.join( '' ) ); }
+
+
 /**
  * @function static shorthand function for the express static function
  * @description TODO:
@@ -108,6 +115,10 @@ api.use( '/global-stylesheet', serveStatic( globalStyleSheet ) );
 /**
  * @description TODO:
  */
+api.use( '/sourcemap', serveStatic( sourceMap ) );
+/**
+ * @description TODO:
+ */
 api.get( '/', ( req, res ) => streamResource( indexFile, indexMime, res ) );
 /**
  * @description TODO:
@@ -132,19 +143,19 @@ api.get( '/app-back-ground', ( req, res ) => {
  */
 api.get( '/api/check-user/:username', ( req, res ) => {
 
-    console.log( ' | -> Get or create user and return user document' );
-    console.log( ' | -> REQUESTED USER: ', req.params );
+    LOG( 'Get or create user and return user document' );
+    LOG( 'REQUESTED USER: ', req.params );
 
     User.find( { name: { $eq: req.params.username } }, ( err, docs ) => { // find user
 
         if ( err ) {
 
-            console.log( '| -> ERROR FINDING USER: ', err );
+            console.log( 'ERROR FINDING USER: ', err );
             res.status( 500 ).send( err );
 
         } else if ( docs.length === 0 ) { // if user does not exist
 
-            console.log( ' | -> User NOT FOUND' );
+            console.log( 'User NOT FOUND' );
 
             new User( { "name": req.params.username } ) // create new user 
 
@@ -152,22 +163,41 @@ api.get( '/api/check-user/:username', ( req, res ) => {
 
                     if ( err ) {
 
-                        console.log( ' | -> ERROR CREATING USER: ', err );
+                        LOG( 'ERROR CREATING USER: ', err );
                         res.status( 501 ).send( err ); // return 501
 
                     } else {
-                        console.log( ' | -> Return created user' );
+                        LOG( 'Return created user' );
                         res.status( 201 ).send( newUser ); // return created user
 
                     }
                 } );
         } else {
-            console.log( ' | -> Return existing user' );
+            LOG( 'Return existing user' );
             res.status( 200 ).send( docs[ 0 ] ); // return existing user
 
         }
     } );
 } );
+/**
+ * @description get user by ID
+ */
+api.get( '/api/user-by-id/:user_id', ( req, res ) => {
 
+    LOG( 'Get user by ID and respond to request with user document' );
+    LOG( 'REQUESTED ID: ', req.params.user_id );
+
+    User.find( { _id: { $eq: ObjectID( req.params.user_id ) } } )
+        .then( user => {
+            LOG( 'Responding with: ', user );
+            res.status( 200 ).send( user[ 0 ] );
+        } )
+        .catch( err => {
+            LOG( 'Error Getting User', err.message );
+            LOG( 'ERROR STACK:', err.stack );
+            httpErr = HttpError.NotFound( err.message );
+            res.send( httpErr );
+        } );
+} );
 
 export default api;

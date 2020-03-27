@@ -15,6 +15,10 @@ import OpponentList from './_players';
  */
 function EnterUserName ( app ) {
 
+    this.app = app;
+
+    handleSubmission.bind( this );
+
     function handleSubmission ( ev ) {
 
         ev.preventDefault();
@@ -37,7 +41,7 @@ function EnterUserName ( app ) {
                         .then( body => {
                             console.log( 'body: ', body );
                             app.lobbyService.enterLobby( body );
-                            this.app.renderPlayerList();
+                            app.renderPlayerList();
                         } );
                 } )
 
@@ -47,7 +51,7 @@ function EnterUserName ( app ) {
         }
     };
 
-    this.app = app;
+
 
     this.template = () => {
         return html`
@@ -59,7 +63,7 @@ function EnterUserName ( app ) {
                     left:0;
                     height: 100vh;
                     width: 100vw;
-                    background: rgba(0,0,0,0.2);
+                    background: rgba(0,0,0,0.8);
                     z-index: 100;
                 }
                 .username-form{
