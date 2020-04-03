@@ -42,7 +42,8 @@ const
     icons = join( staticFiles, 'style/fa/icons.css' ),
     faFontFiles = join( staticFiles, 'style/fa' ),
     bgImagePath = join( staticFiles, 'img/app-bg' ),
-    sourceMap = join( scrFiles, 'bundle.main.map' );
+    sourceMap = join( scrFiles, 'bundle.main.map' ),
+    fauxton = join( __dirname, '../../node_modules/pouchdb-fauxton/www' );
 
 /**
  * @function static shorthand function for the express static function

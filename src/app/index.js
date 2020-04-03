@@ -2,10 +2,11 @@
  * @description browser code entry point
  */
 import App from './components';
-import { $, create, byId, byName, byTag } from './tools';
+import { $, create, byId, byName, byTag, body } from './tools';
 import { render, html } from 'lit-html';
 import LobbyService from './services/lobby.service.mjs';
 
+let prodMode = process.env.NODE_ENV === 'production';
 const appFrame = html`
         <nav class="box-shadow-2"></nav>
         <header></header>
@@ -20,6 +21,9 @@ const appFrame = html`
     App.initialize();
 } );;
 
+window.onload = function () {
+    if ( prodMode ) body.style.background = 'url("app-back-ground") center center / auto 105vh no-repeat;';
+};
 
 // $.body.style.background = `url(${ require( '../../public/img' ) })`;
 

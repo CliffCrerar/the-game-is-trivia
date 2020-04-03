@@ -17,9 +17,6 @@ body {
   height: auto;
   overflow-x: hidden; }
 
-body {
-  background: url("app-back-ground") center center/auto 105vh no-repeat; }
-
 header h2 {
   text-align: center; }
 

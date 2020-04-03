@@ -9,6 +9,17 @@ function PlayerList ( app ) {
 
     this.app = app;
 
+    this.app.lobbyService.localLobby.allDocs( { include_docs: true } )
+        .then( allDocs => {
+
+            allDocs.rows.forEach( row => {
+                console.log( 'row: ', row );
+
+                updatePlayerList( row.doc, 'entry' );
+            } );
+        } )
+        .catch( err => { throw new Error( err ); } );
+
     const listContainer = create( 'ul' );
 
     const listElement = create( 'li' );//.classList.add( 'player-listing' );
@@ -16,7 +27,12 @@ function PlayerList ( app ) {
     listElement.classList.add( 'player-listing' );
 
     function updatePlayerList ( player, type ) {
-        console.log();
+        console.log( 'type: ', type );
+        if ( type ?? 'entry' ) {
+            addPlayer( player );
+        } else if ( type ) {
+            console.log( 'do not or remove' );
+        }
     }
 
     function addPlayer ( player ) {
@@ -43,13 +59,6 @@ function PlayerList ( app ) {
     } );
 
     this.template = () => {
-        // renderList();
-        /*
-            <div class="player-listing">
-                <div class="player-avatar fa">&#xf007;</div>
-                <div class="player-name">Player</div>
-            </div>    
-        */
 
         return html`
         <div class="main-inner box-shadow-2 bg-white">

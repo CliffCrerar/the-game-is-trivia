@@ -11,12 +11,16 @@ import LobbyService from '../services/lobby.service.mjs';
 import { html, render } from 'lit-html';
 import { byTag } from '../tools';
 
+AppController.prototype.LobbyServiceConstructor = LobbyService;
+
 const
     App = new AppController(),
-    Lobby = new LobbyService( App ),
+
     NavBarTitle = 'Movie Trivia',
     InitialHeader = 'Lobby',
     FooterTitle = 'FooterText';
+console.log( 'App: ', App );
+// App.constructor.protoType.lobbyService = new LobbyService( App );
 
 function AppController () {
 
@@ -40,12 +44,6 @@ function AppController () {
     /**
      * @description TODO:
      */
-
-    this.lobbyService;
-
-    /**
-     * @description TODO:
-     */
     this.renderNavbar = () => render( this.navBarComponent, this.navBarContainer );
     this.renderHeader = () => render( this.headerComponent, this.headerContainer );
     this.renderPlayerList = () => render( this.playerListComponent, this.mainContainer );
@@ -63,6 +61,8 @@ function AppController () {
         this.mainContainer = byTag( 'main' )[ 0 ];
         this.footerContainer = byTag( 'footer' )[ 0 ];
 
+        this.lobbyService = new this.LobbyServiceConstructor( this );
+
         loadComponents();
     };
 
@@ -73,7 +73,7 @@ function AppController () {
     this.attachService = function ( serviceName, service ) {
         this[ serviceName ] = service;
     };
-}
+};
 
 /**
  * @function loadComponents
@@ -87,18 +87,17 @@ function loadComponents () {
     /**
      * @description TODO:
      */
-    App.attachService( 'lobbyService', Lobby );
+    // App.attachService( 'lobbyService', Lobby );
 
     /**
      * @description TODO:
      */
+
     App.navBarComponent = new Navbar( App, NavBarTitle );
     App.headerComponent = new Header( App, InitialHeader );
     App.footerComponent = new Footer( App, FooterTitle );
     App.playerListComponent = new PlayerList( App );
     App.userNameComponent = new EnterUserName( App );
-
-    console.log( 'App.userNameComponent: ', App.userNameComponent );
 
     /**
      * @description TODO:
@@ -117,7 +116,7 @@ function loadComponents () {
     /**
      * @description If user id exists in local storage enter user into lobby
      */
-    checkUser && fetchUserName( user => Lobby.enterLobby( user ) );
+    // checkUser && fetchUserName( user => Lobby.enterLobby( user ) );
 }
 
 /**

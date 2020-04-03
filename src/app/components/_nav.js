@@ -17,6 +17,8 @@ function Navbar ( app, initText ) {
 
     this.setText = ( newText ) => this.navbarBrand = newText;
 
+    console.log( this.app );
+
     return this.template();
 
 }

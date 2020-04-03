@@ -31,7 +31,9 @@ function exitLobby () {
  * @description enters users into server side lobby by using pouchdb get and put
  * @param user the user to enter the lobby
  */
-function enterLobby ( user, remote ) {
+function enterLobby ( user ) {
+
+    console.log( 'Enter into Lobby' );
 
     const { get, put } = Lobby;
 
@@ -39,7 +41,11 @@ function enterLobby ( user, remote ) {
 
     get( user._id, { include_all: true }, ( getError, getResult ) => {
 
+        console.log( 'getResult: ', getResult );
+
         if ( getError ) {
+
+            console.log( 'Enter Lobby get Error:' );
 
             put( user, { include_all: true }, function ( putError, putResult ) {
 
@@ -77,12 +83,10 @@ function LobbyService ( app ) {
 
     this.localLobby = Lobby;
 
-    this.enterLobby = ( user ) => enterLobby( user, this.localLobby );
-
-    // this.exit = exitLobby;
+    this.enterLobby = enterLobby;
 
     this.localLobby.sync( remoteLobby, {
-        since: 'now',
+
         live: true,
         include_docs: true
 
