@@ -10,7 +10,12 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "app/public/js/*"
+      "public/js/*",
+      "public/style/global.css",
+      "public/style/global.scss",
+      "lit-plugin.log",
+      "log.txt",
+      "config.json"
     ],
     "delay": "0"
   },
@@ -28,6 +33,7 @@
     "express": "^4.17.1",
     "express-pouchdb": "^4.2.0",
     "guid": "0.0.12",
+    "http-errors": "^1.7.3",
     "lit-html": "^1.2.1",
     "mongodb": "^3.5.5",
     "mongoose": "^5.9.6",
@@ -38,7 +44,7 @@
     "pouchdb-adapter-memory": "^7.2.1",
     "pouchdb-core": "^7.2.1",
     "pouchdb-replication": "^7.2.1",
-    "webpack": "^4.42.0"
+    "webpack": "^4.42.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",

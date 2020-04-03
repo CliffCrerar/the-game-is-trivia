@@ -1,5 +1,0 @@
-/**
- * @name Web-scraper
- */
-
-

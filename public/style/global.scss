@@ -1,0 +1,287 @@
+/**
+* App global styles
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Raleway|Roboto:300&display=swap");
+// @import url("style/normalize/style.css");
+
+:root {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Roboto !important;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  height: auto;
+  overflow-x: hidden;
+}
+
+body {
+}
+
+header {
+  h2 {
+    text-align: center;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Raleway;
+}
+
+nav {
+  height: 60px;
+  display: flex;
+  flex-flow: row-wrap;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 81%,
+    rgba(213, 213, 213, 1) 100%
+  );
+}
+
+main {
+  .main-inner {
+    width: 50vw;
+    margin: auto;
+    padding: 16px;
+    min-width: 280px;
+    max-width: 400px;
+  }
+}
+
+header {
+  h2 {
+    text-align: center;
+  }
+}
+
+footer {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  width: 100vw;
+  height: 60px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    360deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 1) 81%,
+    rgba(213, 213, 213, 1) 100%
+  );
+  box-shadow: 28px 0px 50px rgba(0, 0, 0, 0.16);
+  h3 {
+    text-align: center;
+  }
+}
+
+label {
+  display: block;
+  padding-bottom: 10px;
+  font-size: 1.2em;
+}
+input,
+button {
+  font-size: 1.2em;
+  border-radius: 4px;
+}
+input {
+  border-radius: 4px;
+  border: 1px solid lightgray;
+  padding: 10px 10px 10px 10px;
+  &:focus {
+    outline: none;
+    border: 1px solid black;
+  }
+  &::placeholder {
+    color: lightgrey;
+  }
+}
+
+button {
+  padding: 10px 40px 10px 40px;
+  outline: none;
+  &:focus {
+    border: 1px solid silver;
+  }
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+}
+
+hr {
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.display-one {
+  font-size: 7em !important;
+}
+
+.display-two {
+  font-size: 6em !important;
+}
+
+.display-three {
+  font-size: 5em !important;
+}
+
+.display-four {
+  font-size: 4em !important;
+}
+
+.display-five {
+  font-size: 3em !important;
+}
+
+.display-six {
+  font-size: 2em !important;
+}
+
+.bg-white {
+  background: white !important;
+}
+
+.text-white {
+  color: white !important;
+}
+
+.nav-brand {
+  margin: 0px;
+  display: block;
+}
+
+.btn-default {
+  background: silver;
+  border: 1px solid grey;
+  &:hover {
+    background: grey;
+    color: white;
+  }
+}
+
+.btn-primary {
+  background: rgb(30, 144, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(30, 144, 255, 1) 0%,
+    rgba(30, 144, 255, 1) 40%,
+    rgba(72, 165, 255, 1) 60%,
+    rgba(72, 165, 255, 1) 100%
+  );
+  color: white;
+  border: 1px solid transparent;
+  :hover {
+    color: white;
+  }
+}
+
+.box-shadow-1 {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.box-shadow-2 {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.box-shadow-3 {
+  box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
+}
+
+.box-shadow-4 {
+  box-shadow: 0 28px 50px rgba(0, 0, 0, 0.16);
+}
+
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.player-listing {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.player-avatar {
+  margin-right: 15px;
+  font-size: 2em;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-inline {
+  display: inline !important;
+}
+
+.d-inline-block {
+  display: inline-block !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-row {
+  flex-direction: row !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-row-wrap {
+  flex-flow: row wrap !important;
+}
+
+.justify-between {
+  justify-content: space-between !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.justify-around {
+  justify-content: space-around !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.flex-one {
+  flex: 1 !important;
+}

@@ -2,15 +2,14 @@
  * Application entry point
  */
 
-import configureEnvironment from './utils/env-config';
+import configureEnvironment from './src/utils/env-config';
 import testConnect from './test-connect';
 import { MongoClient } from 'mongodb';
-import __ from './utils/decode';
+import __ from './src/utils/decode';
 import express from 'express';
 import webpack from 'webpack';
 import path from 'path';
-import app from './app';
-import api from './api';
+import api from './src/api';
 import fs from 'fs';
 import os from 'os';
 
@@ -31,7 +30,7 @@ let defaultPort = 3000;
  * @function configureNodePath sets up the node path for the application
  */
 function configureNodePath () {
-    return process.env.NODE_PATH = [ './', './utils' ]
+    return process.env.NODE_PATH = [ './', './src', './src/utils' ]
         .join( platform() === 'win32' ? ';' : ':' );
 }
 
@@ -64,10 +63,10 @@ function configureBrowserCode () {
     const
         devMode = process.env.NODE_ENV === 'development',
         appEntry = {
-            main: [ resolve( 'app/src/index.js' ) ]
+            main: [ resolve( 'src/app/index.js' ) ]
         },
         outFileName = devMode ? 'bundle.[name].js' : 'bundle.[hash].[name].js',
-        outFilePath = resolve( 'app/public/js' );
+        outFilePath = resolve( 'public/js' );
 
     readDir( outFilePath ).forEach( file => remove( join( outFilePath, file ) ) ); // clean path
     // configure front end code on return also demonstrates closures
@@ -82,7 +81,14 @@ function configureBrowserCode () {
             rules: [
                 { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
             ]
-        }
+        },
+        plugins: [
+            new webpack.SourceMapDevToolPlugin( {
+                filename: join( 'public/[file].map' ),
+                publicPath: '/sourcemap',
+                fileContext: 'public'
+            } )
+        ]
     } ).run( ( err ) => {
         try {
             if ( err ) throw new Error( err );
@@ -114,8 +120,7 @@ function configureAndTestDbConnection () {
 function configureServer ( callback ) {
     const server = express();
     const port = normalizePort( process.env.PORT || defaultPort );
-    server.use( '/', app );
-    server.use( '/api', api );
+    server.use( api );
     return callback( server, port );
 }
 
