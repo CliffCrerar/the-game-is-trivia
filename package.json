@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/CliffCrerar/the-game-is-trivia#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-pouchdb": "^4.2.0",
     "guid": "0.0.12",
     "lit-html": "^1.2.1",
